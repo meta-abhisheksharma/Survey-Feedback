@@ -1,0 +1,9 @@
+Refrences
+
+http://themifycloud.com/demos/templates/joli/
+
+http://authenticgoods.co/wrapbootstrap/themes/neuboard-v1.4.3/Angular_full_version/#/index
+
+http://flatlogic.github.io/angular-material-dashboard/#/table
+
+http://themifycloud.com/demos/templates/joli/index.html
