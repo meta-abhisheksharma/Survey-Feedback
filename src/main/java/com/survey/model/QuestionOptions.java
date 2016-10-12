@@ -1,7 +1,11 @@
 package main.java.com.survey.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Parameter;
 import org.springframework.stereotype.Repository;
 
 @Repository
