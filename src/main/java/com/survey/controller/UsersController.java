@@ -1,9 +1,8 @@
-package main.java.com.survey.controller;
+package java.com.survey.controller;
 
+import java.com.survey.facade.UsersFacade;
+import java.com.survey.model.Users;
 import java.util.List;
-
-import main.java.com.survey.facade.UsersFacade;
-import main.java.com.survey.model.Users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
