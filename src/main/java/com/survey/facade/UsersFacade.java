@@ -1,9 +1,8 @@
-package main.java.com.survey.facade;
+package java.com.survey.facade;
 
+import java.com.survey.dao.UsersDAO;
+import java.com.survey.model.Users;
 import java.util.List;
-
-import main.java.com.survey.dao.UsersDAO;
-import main.java.com.survey.model.Users;
 
 import org.springframework.beans.factory.annotation.Autowired;
 

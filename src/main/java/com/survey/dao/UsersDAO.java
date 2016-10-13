@@ -1,8 +1,7 @@
-package main.java.com.survey.dao;
+package java.com.survey.dao;
 
+import java.com.survey.model.Users;
 import java.util.List;
-
-import main.java.com.survey.model.Users;
 
 public interface UsersDAO {
 	public List<Users> getAll();
