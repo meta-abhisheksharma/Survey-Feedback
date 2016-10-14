@@ -15,36 +15,24 @@
 
 <body ng-app="myApp">
 <section id="container" >
-   <!--header start-->
-    <header class="header black-bg">
-        <div class="sidebar-toggle-box">
-          <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-        </div>
-      <!--logo start-->
-      <a href="index.html" class="logo"><b>Survey Feeedback</b></a>
-      <!--logo end-->
-    </header>
-    <!--header end-->
+   <div ng-include="'assets/contentView/header.htm'">
+
+   </div>
     <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
     *********************************************************************************************************************************************************** -->
-
+    <div ng-include="'assets/contentView/dashboardView.htm'">
+    </div>
     <!-- **********************************************************************************************************************************************************
 		  MAIN CONTENT
 		*********************************************************************************************************************************************************** -->
 
-    <div ng-view>
-   </div>   <!--ngview -->
-    <!--footer start-->
-     <footer class="site-footer">
-       <div class="text-center">
-         MetaCube Softwares
-         <!-- <a href="index.html#" class="go-top">
-           <i class="fa fa-angle-up"></i>
-         </a> -->
-       </div>
-     </footer>
-     <!--footer end-->
+    <!-- <div ng-view>
+   </div>   <!--ngview --> -->
+   <div ng-include="'assets/contentView/footer.htm'">
+
+   </div>
+
  </section>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
@@ -56,8 +44,6 @@
    <script src="assets/js/jquery-1.8.3.min.js"></script>
    <script src="assets/js/bootstrap.min.js"></script>
    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
-   <!--BACKSTRETCH-->
-		<script type="text/javascript" src="assets/js/jquery.backstretch.min.js"></script>
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
 		<script>
