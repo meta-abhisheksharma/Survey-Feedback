@@ -9,6 +9,7 @@ angular.module("myApp").config(function($routeProvider) {
    .when("/signup", {
        templateUrl : "assets/contentView/signup.htm"
    })
+
    .otherwise({
       redirectTo: "assets/contentView/login.htm"
    });

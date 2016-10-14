@@ -26,32 +26,26 @@
     </header>
     <!--header end-->
     <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
+      MAIN SIDEBAR MENU &   MAIN CONTENT
     *********************************************************************************************************************************************************** -->
-
-    <!-- **********************************************************************************************************************************************************
-		  MAIN CONTENT
-		*********************************************************************************************************************************************************** -->
-
     <div ng-view>
    </div>   <!--ngview -->
-    <!--footer start-->
-     <footer class="site-footer">
-       <div class="text-center">
-         MetaCube Softwares
-         <!-- <a href="index.html#" class="go-top">
-           <i class="fa fa-angle-up"></i>
-         </a> -->
-       </div>
-     </footer>
-     <!--footer end-->
+
+
+   <!-- **********************************************************************************************************************************************************
+              FOOTER START
+   *********************************************************************************************************************************************************** -->
+
+   <div ng-include="'assets/contentView/footer.htm'">
+
+   </div>
  </section>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
    <script type="text/javascript" src="assets/js/main.js"></script>
    <script type="text/javascript" src="assets/js/route.js"></script>
-   
+
    <!-- js placed at the end of the document so the pages load faster -->
    <script src="assets/js/jquery-1.8.3.min.js"></script>
    <script src="assets/js/bootstrap.min.js"></script>
