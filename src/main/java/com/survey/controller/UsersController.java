@@ -1,31 +1,45 @@
-package java.com.survey.controller;
+package com.survey.controller;
 
-import java.com.survey.facade.UsersFacade;
-import java.com.survey.model.Users;
-import java.util.List;
+
+
+import com.survey.facade.UsersFacade;
+import com.survey.model.Users;
+
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
-@RestController
-@RequestMapping("/users")
-public class UsersController {
+
+
+@Controller
+@RequestMapping("/user")
+public class UsersController  {
 	
 	@Autowired
-	UsersFacade usersFacade;
+	private UsersFacade usersFacade;
 	
-	@RequestMapping(method=RequestMethod.GET)
-	public ResponseEntity<List<Users>> getAll(){
-		return new ResponseEntity<List<Users>>(usersFacade.getAll(), HttpStatus.OK);
+
+	
+
+	
+	
+	public UsersFacade getUsersFacade() {
+		return usersFacade;
 	}
-	
-	@RequestMapping(value="{userID}",method=RequestMethod.GET)
+
+	public void setUsersFacade(UsersFacade usersFacade) {
+		this.usersFacade = usersFacade;
+	}
+
+	@RequestMapping(value="/user/getUser",method=RequestMethod.GET)
 	public ResponseEntity<Users> getByID(@PathVariable("userID") String userID){
 		Users users = usersFacade.getByID(userID);
 		if(users!=null){
@@ -35,8 +49,10 @@ public class UsersController {
 		}
 	}
 	
-	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<String> create(@RequestBody Users users){
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<String> create(@RequestBody Users users,HttpServletRequest request){
+		System.out.println("in  save");
 		boolean value = usersFacade.create(users);
 		if(value){
 			return new ResponseEntity<String>("User Created",HttpStatus.OK);
@@ -44,25 +60,7 @@ public class UsersController {
 			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
 	}
+
 	
-	@RequestMapping(value="{userID}",method=RequestMethod.PUT)
-	public ResponseEntity<String> updateByID(@PathVariable("userID") String userID){
-		boolean value = usersFacade.updateByID(userID);
-		if(value){
-			return new ResponseEntity<String>("User Updated",HttpStatus.OK);
-		}else{
-			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
-	
-	@RequestMapping(value="{userID}",method=RequestMethod.DELETE)
-	public ResponseEntity<String> deleteByID(@PathVariable("userID") String userID){
-		boolean value = usersFacade.deleteByID(userID);
-		if(value){
-			return new ResponseEntity<String>("User deleted",HttpStatus.OK);
-		}else{
-			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
-		}
-	}
 	
 }

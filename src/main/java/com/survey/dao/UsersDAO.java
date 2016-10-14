@@ -1,6 +1,6 @@
-package java.com.survey.dao;
+package com.survey.dao;
 
-import java.com.survey.model.Users;
+import com.survey.model.Users;
 import java.util.List;
 
 public interface UsersDAO {

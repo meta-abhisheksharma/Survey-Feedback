@@ -16,25 +16,56 @@
      http://www.springframework.org/schema/tx/spring-tx-2.5.xsd">
     <!-- the application context definition for the springapp DispatcherServlet -->
     
+    <mvc:annotation-driven />
     <!-- Step 3: Add support for component scanning -->
-    <context:component-scan base-package="com.surveymgmt" />
-	<!-- <context:component-scan base-package="com.surveymgmt.controller" /> -->
+  <context:component-scan base-package="com" use-default-filters="false">
+		    <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+		</context:component-scan>
+    
+
 	
 	<!-- Step 4: Add support for conversion, formatting and validation support -->
-	<mvc:annotation-driven />
-	<context:annotation-config />
 	
 	
-	<mvc:resources mapping="assets/**" location="/assets/"/>
-	<mvc:resources mapping="/**" location="WEB-INF/view/"/>
-	
-	<!-- Step 5: Define Spring MVC view resolver -->
-	
-	<!-- <bean
-		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="prefix" value="WEB-INF/view/" />
+	<bean id="viewResolver"	class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"	value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/webapp/" />
 		<property name="suffix" value=".html" />
-	</bean> -->
+	</bean>
+
+	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/survey_system"/>
+        <property name="username" value="root"/>
+        <property name="password" value=""/>
+        <property name="testOnBorrow" value="true"/>
+        <property name="testOnReturn" value="true"/>
+        <property name="testWhileIdle" value="true"/>
+        <property name="timeBetweenEvictionRunsMillis" value="1800000"/>
+        <property name="numTestsPerEvictionRun" value="3"/>
+        <property name="minEvictableIdleTimeMillis" value="1800000"/>
+        <property name="validationQuery" value="SELECT version();"/>
+    </bean>
+    
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		 <property name="mappingResources">
+			<list>
+				<value>EntityClassMapping.hbm.xml </value>
+			</list>
+		</property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.HSQLDialect</prop>
+				<prop key="hibernate.current_session_context_class">thread</prop>
+			</props>
+		</property>
+
+	</bean>
+	<bean  lazy-init="true" id="usersController" class="com.survey.controller.UsersController">
+	</bean>
+	<bean  lazy-init="true" id="usersFacade" class="com.survey.facade.UsersFacade">
+	</bean>
 	
     
     

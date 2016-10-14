@@ -1,4 +1,4 @@
-package java.com.survey.model;
+package com.survey.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

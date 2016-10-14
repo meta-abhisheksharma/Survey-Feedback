@@ -1,4 +1,4 @@
-package java.com.survey.model;
+package com.survey.model;
 
 import java.util.Date;
 

@@ -1,4 +1,4 @@
-package java.com.survey.model;
+package com.survey.model;
 
 import java.util.Date;
 
@@ -12,31 +12,21 @@ import javax.persistence.TemporalType;
 import org.springframework.stereotype.Repository;
 
 
-@Repository
-@Entity
-@Table(name="users")
 public class Users {
 	
-	@Id
-	@Column(name="userID",length=30)
+	private Long id;
 	private String userId;
-	@Column(name="name",nullable=false,length=45)
 	private	String name;
-	@Column(name="email",nullable=false,length=90)
 	private String email;
 	
-	@Column(name="password",nullable=false,length=45)
 	private String password;
 	
-	@Column(name="userRole",nullable=false,length=15)
 	private String userRole;
 	
-	@Column(name="blockUser",length=1)
 	private String blockUser;
-	@Temporal(TemporalType.DATE)
 	private Date createdTime;
-	@Temporal(TemporalType.DATE)
 	private Date updatedTime;
+	
 	public String getUserId() {
 		return userId;
 	}
@@ -84,6 +74,12 @@ public class Users {
 	}
 	public void setUpdatedTime(Date updatedTime) {
 		this.updatedTime = updatedTime;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	
 
