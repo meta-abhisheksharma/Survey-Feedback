@@ -26,11 +26,6 @@ public class UsersController  {
 	@Autowired
 	private UsersFacade usersFacade;
 	
-
-	
-
-	
-	
 	public UsersFacade getUsersFacade() {
 		return usersFacade;
 	}

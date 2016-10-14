@@ -9,12 +9,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class UsersFacade {
 	
 	@Autowired
-	UsersDAO userDAO;
+	private UsersDAO userDAO;
 	
 	public List<Users> getAll(){
 		return userDAO.getAll();
 	}
 	
+	public UsersDAO getUserDAO() {
+		return userDAO;
+	}
+
+	public void setUserDAO(UsersDAO userDAO) {
+		this.userDAO = userDAO;
+	}
+
 	public Users getByID(String userID){
 		return userDAO.getByID(userID);
 	}

@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 
 public class Users {
 	
-	private Long id;
+	
 	private String userId;
 	private	String name;
 	private String email;
@@ -75,12 +75,6 @@ public class Users {
 	public void setUpdatedTime(Date updatedTime) {
 		this.updatedTime = updatedTime;
 	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	
+
 
 }

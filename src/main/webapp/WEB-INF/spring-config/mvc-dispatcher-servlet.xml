@@ -62,9 +62,12 @@
 		</property>
 
 	</bean>
+	<bean  lazy-init="true" id="userDAO" class="com.survey.dao.impl.UsersDAOImpl">
+	</bean>
 	<bean  lazy-init="true" id="usersController" class="com.survey.controller.UsersController">
 	</bean>
 	<bean  lazy-init="true" id="usersFacade" class="com.survey.facade.UsersFacade">
+	     <property name="userDAO" ref="userDAO"></property>
 	</bean>
 	
     
