@@ -13,28 +13,38 @@ import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.survey.dao.UsersDAO;
 import com.survey.model.Users;
 
-@Repository("usersDAO")
+@Component("usersDAO")
+@Transactional
 public class UsersDAOImpl implements UsersDAO {
 	
 	@Autowired
 	SessionFactory sessionFactory;
 
-
+	public SessionFactory getSessionFactory() {
+	    return sessionFactory;
+	}
+	public void setSessionFactory(SessionFactory sessionFactory) {
+	    this.sessionFactory = sessionFactory;
+	}
 
 	@Override
 	public void create(Users users) {
-			Long created=null;
+			String created=null;
+			Transaction trans=null;
 			try {
 				Session session = this.sessionFactory.getCurrentSession();
-				Transaction trans=session.beginTransaction();
-				 created= (Long) session.save(users);
+				//session.beginTransaction();
+				trans=session.beginTransaction();
+				 created=  (String) session.save(users);
 				trans.commit();
 			} catch (Exception ex) {
 				ex.printStackTrace();
+				trans.commit();
 			}
 
 			

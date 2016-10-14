@@ -8,9 +8,8 @@
 
   <class name="com.survey.model.Users" table="users">
       <meta attribute="class-description">       This class contains the user detail.   </meta>
-    	<id name="id" type="long" column="id">   <generator class="increment"/>    </id>
-
-    <property name="userId" column="userId" type="string" ></property>
+   
+    <id name="userId" column="userId" type="string" ></id>
     <property name="name" column="name" type="string" ></property>
     <property name="email" column="email" type="string"></property>
     <property name="password" column="password" type="string"></property>
