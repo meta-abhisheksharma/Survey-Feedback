@@ -10,4 +10,5 @@ public interface QuestionsDAO {
 	public void create(Question questions);
 	public void deleteByID(String questionID);
 	public void updateByID(String questionID, Question question);
+	public List<Question> getBySurveyID(String surveyID);
 }

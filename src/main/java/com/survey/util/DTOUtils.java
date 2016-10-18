@@ -14,7 +14,7 @@ import com.survey.model.Survey;
 import com.survey.model.User;
 
 public class DTOUtils {
-
+	
 	public static List<SurveyDTO> populateSurveyDTO(List<Survey> surveys){
 		List<SurveyDTO> surveyDTOs = null;
 		SurveyDTO surveyDTO = null;
@@ -22,13 +22,14 @@ public class DTOUtils {
 			surveyDTOs = new ArrayList<SurveyDTO>(surveys.size());
 			for (Survey survey : surveys) {
 				surveyDTO = new SurveyDTO();
-			/*	surveyDTO.setQuestions(populateQuestionDTO(survey.getQuestionList()));*/  //getQuestionList() will add in surveys
-				
-			}
-			
-			
+				surveyDTO.setStatus(survey.getStatus());
+				surveyDTO.setSurveyName(survey.getSurveyName());
+				surveyDTO.setSurveyID(survey.getSurveyId());
+				surveyDTO.setQuestions(populateQuestionDTO(survey.getQuestionList()));
+				surveyDTOs.add(surveyDTO);
+			}	
 		}
-		return new ArrayList<SurveyDTO>();
+		return surveyDTOs;
 	}
 	
 	public static List<QuestionDTO> populateQuestionDTO(List<Question> questions) {
@@ -49,7 +50,7 @@ public class DTOUtils {
 	}
 
 	private static List<OptionDTO> populateQuestionOptionDTO(
-			Set<Option> optionList) {
+			List<Option> optionList) {
 		List<OptionDTO> optionDTOs = null;
 		OptionDTO optionDTO = null;
 		if (optionList != null) {
@@ -79,8 +80,6 @@ public class DTOUtils {
 				userDTOs.add(userDTO);
 			}
 		}
-		return userDTOs;
-		
-		
+		return userDTOs;	
 	}
 }

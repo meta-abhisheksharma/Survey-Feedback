@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.survey.dao.QuestionsDAO;
 import com.survey.dto.SurveyDTO;
 import com.survey.model.Question;
+import com.survey.model.Survey;
 import com.survey.util.DTOUtils;
 
 @Component
@@ -55,6 +56,10 @@ public class QuestionsFacade {
 		} catch (Exception e) {
 			return false;
 		}
+	}
+	
+	public List<Question> getBySurveyID(String surveyID){
+		return questionsDAO.getBySurveyID(surveyID);
 	}
 
 }

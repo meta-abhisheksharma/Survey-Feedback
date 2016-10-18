@@ -2,15 +2,13 @@ package com.survey.dto;
 
 import java.util.List;
 
-import com.survey.model.Question;
-import com.survey.model.Survey;
-
 public class SurveyDTO {
 
 	private List<QuestionDTO> questions;
 	private String surveyType;
 	private String surveyName;
 	private String status;
+	private String surveyID;
 	
 	public String getSurveyType() {
 		return surveyType;
@@ -42,5 +40,19 @@ public class SurveyDTO {
 
 	public void setQuestions(List<QuestionDTO> questions) {
 		this.questions = questions;
+	}
+
+	/**
+	 * @return the surveyID
+	 */
+	public String getSurveyID() {
+		return surveyID;
+	}
+
+	/**
+	 * @param surveyID the surveyID to set
+	 */
+	public void setSurveyID(String surveyID) {
+		this.surveyID = surveyID;
 	}	
 }

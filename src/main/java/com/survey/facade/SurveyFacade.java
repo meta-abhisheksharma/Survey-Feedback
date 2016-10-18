@@ -3,15 +3,16 @@ package com.survey.facade;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.survey.dao.SurveyDAO;
 import com.survey.dto.SurveyDTO;
-import com.survey.model.Question;
 import com.survey.model.Survey;
 import com.survey.util.DTOUtils;
+import com.survey.util.ModelUtils;
 
-
+@Service
 public class SurveyFacade {
 
 	@Autowired
@@ -32,11 +33,13 @@ public class SurveyFacade {
 	}
 
 	
-	public boolean create(Survey survey) {
+	public boolean create(SurveyDTO surveyDTO) {
 		try {
+			Survey survey = ModelUtils.populateSurvey(surveyDTO);
 			surveyDAO.create(survey);
 			return true;
 		} catch (Exception e) {
+			e.printStackTrace();
 			return false;
 		}
 	}

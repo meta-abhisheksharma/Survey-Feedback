@@ -1,8 +1,8 @@
 package com.survey.model;
 
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -43,18 +43,18 @@ public class Question {
 	private Date UpdatedTime;
 
 	@OneToMany(mappedBy="question")
-	private Set<Option> optionList=new HashSet<Option>();
+	private List<Option> optionList=new ArrayList<Option>();
 
 	@ManyToOne
 	@JoinColumn(name="surveyID")
 	private Survey survey;
 
 
-	public Set<Option> getOptionList() {
+	public List<Option> getOptionList() {
 		return optionList;
 	}
 
-	public void setOptionList(Set<Option> optionList) {
+	public void setOptionList(List<Option> optionList) {
 		this.optionList = optionList;
 	}
 

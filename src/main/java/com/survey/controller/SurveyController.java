@@ -9,16 +9,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.survey.dto.SurveyDTO;
 import com.survey.facade.SurveyFacade;
 import com.survey.model.Survey;
 
+@RestController
+@RequestMapping("/surveys")
 public class SurveyController {
 	
 	@Autowired
 	SurveyFacade surveyFacade;
 	
+	@RequestMapping(method=RequestMethod.GET)
 	public ResponseEntity<List<SurveyDTO>> getAll(){
 		List<SurveyDTO> survey = surveyFacade.getAll();
 		return new ResponseEntity<List<SurveyDTO>>(survey, HttpStatus.OK);
@@ -32,7 +36,7 @@ public class SurveyController {
 	
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<String> create(@RequestBody Survey surveyDTO){
+	public ResponseEntity<String> create(@RequestBody SurveyDTO surveyDTO){
 		boolean value = surveyFacade.create(surveyDTO);
 		if(value){
 			return new ResponseEntity<String>("survey Created",HttpStatus.OK);
