@@ -11,6 +11,7 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
   </head>
 
 <body ng-app="myApp">
@@ -40,8 +41,54 @@
     <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
     *********************************************************************************************************************************************************** -->
-    <div ng-include="'assets/contentView/dashboardView.htm'">
-  </div>
+    <!-- <div ng-include="'assets/contentView/dashboardView.htm'">
+  </div> -->
+  <aside>
+         <div id="sidebar"  class="nav-collapse ">
+             <!-- sidebar menu start-->
+             <ul class="sidebar-menu" id="nav-accordion">
+                 <p class="centered"><a href="dashboard.jsp"><img src="assets/img/ui-sam.jpg" class="img-circle" width="100" height="100"></a></p>
+                 <h5 class="centered">Nikhil Srivastava</h5>
+                 <li class="mt">
+                     <a href="dashboard.jsp">
+                         <i class="fa fa-dashboard"></i>
+                         <span>Dashboard</span>
+                     </a>
+                 </li>
+                 <li class="sub-menu">
+                     <a href="javascript:;" >
+                         <i class="fa fa-desktop"></i>
+                         <span>Surveys</span>
+                     </a>
+                     <ul class="sub">
+                         <li><a  href="">Add Survey</a></li>
+                         <li><a  href="">Edit Survey</a></li>
+                         <li><a  href="">Survey List</a></li>
+                     </ul>
+                 </li>
+
+                 <li class="sub-menu">
+                     <a href="javascript:;" >
+                         <i class="fa fa-user"></i>
+                         <span>Users</span>
+                     </a>
+                     <ul class="sub">
+                         <li><a  href="">Add User</a></li>
+                         <li><a  href="">User List</a></li>
+                     </ul>
+                 </li>
+                 <li class="sub-menu">
+                     <a href="javascript:;" >
+                         <i class="fa fa-bar-chart-o"></i>
+                         <span>View Report</span>
+                     </a>
+                 </li>
+             </ul>
+             <!-- sidebar menu end-->
+         </div>
+     </aside>
+     <!--sidebar end-->
+
     <!-- **********************************************************************************************************************************************************
 		  MAIN CONTENT
 		*********************************************************************************************************************************************************** -->
@@ -49,6 +96,45 @@
     <!-- <div ng-view>
    </div> -->
    <!-- ngview -->
+   <section id="main-content">
+    <section class="wrapper">
+      <h3><i class="fa fa-angle-right"></i> Add Survey</h3>
+      <div class="row mt">
+          		<div class="col-lg-11">
+                  <div class="form-panel">
+                  	  <h4 class="mb"><i class="fa fa-angle-right"></i> Survey details</h4>
+
+                      <form class="form-horizontal style-form" method="get">
+                         <div class="form-group">
+                             <label class="col-sm-2 col-sm-2 control-label">Survey Name</label>
+                             <div class="col-sm-10 col-lg-8">
+                                 <input type="text" class="form-control">
+                             </div>
+                         </div>
+                         <div class="form-group">
+                             <label class="col-sm-2 col-sm-2 control-label">Survey Status</label>
+                             <div class="col-sm-10 col-md-3 col-lg-3">
+                               <select class="form-control">
+                                 <option>Publish</option>
+                                 <option>Unpublish</option>
+                               </select>
+                             </div>
+                         </div>
+                      </form>
+
+                  </div>
+
+              </div>
+
+      </div>
+      <div class="pull-right">
+        <button type="button" class="btn btn-theme03 ">Theme 03</button>
+      </div>
+    </section>
+</section>
+
+
+
    <!-- **********************************************************************************************************************************************************
               FOOTER START
    *********************************************************************************************************************************************************** -->
@@ -67,14 +153,15 @@
    <script src="assets/js/jquery-1.8.3.min.js"></script>
    <script src="assets/js/bootstrap.min.js"></script>
    <script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+   <script src="assets/js/jquery.scrollTo.min.js"></script>
     <!--common script for all pages-->
     <script src="assets/js/common-scripts.js"></script>
     <script>
       //custom select box
 
-    /*  $(function(){
+     $(function(){
           $('select.styled').customSelect();
-      });*/
+      });
 
   </script>
 

@@ -11,6 +11,8 @@
 
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet" />
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+
   </head>
 
 <body ng-app="myApp">
@@ -45,8 +47,9 @@
    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
    <script type="text/javascript" src="assets/js/main.js"></script>
    <script type="text/javascript" src="assets/js/route.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/loginController.js"></script>
+   <script type="text/javascript" src="assets/js/controllers/loginController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/signupController.js"></script>
+
 
    <!-- js placed at the end of the document so the pages load faster -->
    <script src="assets/js/jquery-1.8.3.min.js"></script>
