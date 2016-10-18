@@ -7,7 +7,8 @@ angular.module("myApp").config(function($routeProvider) {
        templateUrl : "assets/contentView/login.htm"
    })
    .when("/signup", {
-       templateUrl : "assets/contentView/signup.htm"
+       templateUrl : "assets/contentView/signup.htm",
+       controller:"signupController.js"
    })
 
    .otherwise({
