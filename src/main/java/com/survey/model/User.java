@@ -1,12 +1,17 @@
 package com.survey.model;
 
 import java.util.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -19,15 +24,20 @@ public class User {
 	private String password;
 	private String userRole;
 	private String blockUser;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdTime;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
-
+	
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	private List<Survey> survey;
+	
 	
 	private String name;
 	
 	@Id
 	@Column(name="userID")
-	@GenericGenerator(name = "sequence_user_id", strategy = "com.survey.service.UserIdGenerator")
+	@GenericGenerator(name = "sequence_user_id", strategy = "com.survey.service.UsersIdGenerator")
 	@GeneratedValue(generator = "sequence_user_id")
 	private String id;
 	
@@ -78,6 +88,12 @@ public class User {
 	}
 	public void setUpdatedTime(Date updatedTime) {
 		this.updatedTime = updatedTime;
+	}
+	public List<Survey> getSurveys() {
+		return survey;
+	}
+	public void setSurveys(List<Survey> survey) {
+		this.survey = survey;
 	}
 	
 }

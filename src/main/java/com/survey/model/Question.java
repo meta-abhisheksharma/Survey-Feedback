@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -31,11 +33,13 @@ public class Question {
 	 * @Column(name="createdBy",length=30,nullable=false) private String
 	 * CreatedBy;
 	 */
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date CreatedTime;
 
 	/*
 	 * @Column(name="updatedBy",length=30) private String UpdatedBy;
 	 */
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date UpdatedTime;
 
 	@OneToMany(mappedBy="question")

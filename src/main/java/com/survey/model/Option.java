@@ -10,6 +10,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -24,7 +26,9 @@ public class Option {
 	private String optionID;
 	
 	private String optionText;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date CreatedTime;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date Updatedtime;
 
 	@OneToOne
