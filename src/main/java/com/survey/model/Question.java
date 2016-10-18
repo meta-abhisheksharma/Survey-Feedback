@@ -1,64 +1,145 @@
-package main.java.com.survey.model;
+package com.survey.model;
 
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
-import org.springframework.stereotype.Repository;
+import org.hibernate.annotations.GenericGenerator;
 
-@Repository
 @Entity
 @Table(name = "questions")
 public class Question {
 
 	@Id
 	@Column(name = "questionID", length = 30)
+	@GenericGenerator(name = "sequence_que_id", strategy = "com.survey.service.QuestionIdGenerator")
+	@GeneratedValue(generator = "sequence_que_id")
 	private String questionId;
-
-	@Column(name = "questionType", length = 1)
 	private String questionType;
-
-	@Column(name = "questionText", length = 200, nullable = false)
 	private String questionText;
 
-
-	@Temporal(TemporalType.TIMESTAMP)
+	/*
+	 * @Column(name="createdBy",length=30,nullable=false) private String
+	 * CreatedBy;
+	 */
 	private Date CreatedTime;
 
-	
-	@Temporal(TemporalType.TIMESTAMP)
+	/*
+	 * @Column(name="updatedBy",length=30) private String UpdatedBy;
+	 */
 	private Date UpdatedTime;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	@JoinTable(name = "questions_options", joinColumns = { @JoinColumn(name = "questionID", referencedColumnName = "questionId") }, inverseJoinColumns = { @JoinColumn(name = "optionID", referencedColumnName = "optionId") })
-	private Set<Options> optionList = new HashSet<Options>();
-
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinTable(name = "questions_responses", joinColumns = @JoinColumn(name = "questionID"), inverseJoinColumns = @JoinColumn(name = "responseID"))
-	private Responses responses = new Responses();
+	@OneToMany(mappedBy="question")
+	private Set<Option> optionList=new HashSet<Option>();
 
 	@ManyToOne
+	@JoinColumn(name="surveyID")
+	private Survey survey;
+
+
+	public Set<Option> getOptionList() {
+		return optionList;
+	}
+
+	public void setOptionList(Set<Option> optionList) {
+		this.optionList = optionList;
+	}
+
+	/*
+	 * @OneToOne(cascade = CascadeType.ALL)
+	 * 
+	 * @JoinTable(name = "questions_responses", joinColumns = @JoinColumn(name =
+	 * "questionID"), inverseJoinColumns = @JoinColumn(name = "responseID"))
+	 * private Responses responses = new Responses();
+	 */
+	@ManyToOne
 	@JoinColumn(name = "createdBy")
-	private Users createdBy;
+	private User createdBy;
 
 	@ManyToOne
 	@JoinColumn(name = "updatedBy")
-	private Users updatedBy;
+	private User updatedBy;
 
-	@OneToMany(mappedBy = "question", cascade = CascadeType.ALL)
-	private Set<Options> questionOptions = new HashSet<Options>();
+	/*
+	 * @OneToMany(mappedBy = "question", cascade = CascadeType.ALL) private
+	 * Set<Options> questionOptions = new HashSet<Options>();
+	 */
+	public String getQuestionId() {
+		return questionId;
+	}
+
+	public void setQuestionId(String questionId) {
+		this.questionId = questionId;
+	}
+
+	public String getQuestionType() {
+		return questionType;
+	}
+
+	public void setQuestionType(String questionType) {
+		this.questionType = questionType;
+	}
+
+	public String getQuestionText() {
+		return questionText;
+	}
+
+	public void setQuestionText(String questionText) {
+		this.questionText = questionText;
+	}
+
+	public Date getCreatedTime() {
+		return CreatedTime;
+	}
+
+	public void setCreatedTime(Date createdTime) {
+		CreatedTime = createdTime;
+	}
+
+	public Date getUpdatedTime() {
+		return UpdatedTime;
+	}
+
+	public void setUpdatedTime(Date updatedTime) {
+		UpdatedTime = updatedTime;
+	}
+
+	/*
+	 * public Responses getResponses() { return responses; }
+	 * 
+	 * public void setResponses(Responses responses) { this.responses =
+	 * responses; }
+	 */
+	public User getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(User createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public User getUpdatedBy() {
+		return updatedBy;
+	}
+
+	public void setUpdatedBy(User updatedBy) {
+		this.updatedBy = updatedBy;
+	}
+
+	/*
+	 * public Set<Options> getQuestionOptions() { return questionOptions; }
+	 * 
+	 * public void setQuestionOptions(Set<Options> questionOptions) {
+	 * this.questionOptions = questionOptions; }
+	 */
 
 }
