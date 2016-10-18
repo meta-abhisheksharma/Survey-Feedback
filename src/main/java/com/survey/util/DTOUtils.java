@@ -7,26 +7,28 @@ import java.util.Set;
 import com.survey.dto.OptionDTO;
 import com.survey.dto.QuestionDTO;
 import com.survey.dto.SurveyDTO;
+import com.survey.dto.UserDTO;
 import com.survey.model.Option;
 import com.survey.model.Question;
 import com.survey.model.Survey;
+import com.survey.model.User;
 
 public class DTOUtils {
 
-	public static List<SurveyDTO> populateSurveyDTO(List<Survey> listOfSurvey){
+	public static List<SurveyDTO> populateSurveyDTO(List<Survey> surveys){
 		List<SurveyDTO> surveyDTOs = null;
 		SurveyDTO surveyDTO = null;
-		if(listOfSurvey!=null){
-			surveyDTOs = new ArrayList<SurveyDTO>(listOfSurvey.size());
-			for (Survey survey : listOfSurvey) {
+		if(surveys!=null){
+			surveyDTOs = new ArrayList<SurveyDTO>(surveys.size());
+			for (Survey survey : surveys) {
 				surveyDTO = new SurveyDTO();
-				surveyDTO.setStatus(survey.getStatus());
-				surveyDTO.setSurveyName(survey.getSurveyName());
-				surveyDTO.setQuestions(populateQuestionDTO(survey.getQuestionList()));
-				surveyDTOs.add(surveyDTO);
+			/*	surveyDTO.setQuestions(populateQuestionDTO(survey.getQuestionList()));*/  //getQuestionList() will add in surveys
+				
 			}
+			
+			
 		}
-		return surveyDTOs;
+		return new ArrayList<SurveyDTO>();
 	}
 	
 	public static List<QuestionDTO> populateQuestionDTO(List<Question> questions) {
@@ -61,5 +63,24 @@ public class DTOUtils {
 			}
 		}
 		return optionDTOs;
+	}
+
+	public static List<UserDTO> populateUserDTO(List<User> userList) {
+		List<UserDTO> userDTOs = null;
+		UserDTO userDTO = null;
+		if(userList!=null){
+			userDTOs = new ArrayList<UserDTO>(userList.size());
+			for (User user : userList) {
+				userDTO = new UserDTO();
+				userDTO.setId(user.getId());
+				userDTO.setName(user.getName());
+				userDTO.setEmail(user.getEmail());
+				userDTO.setUserRole(user.getUserRole());
+				userDTOs.add(userDTO);
+			}
+		}
+		return userDTOs;
+		
+		
 	}
 }

@@ -1,6 +1,5 @@
 package com.survey.facade;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,9 +16,6 @@ public class SurveyFacade {
 
 	@Autowired
 	SurveyDAO surveyDAO;
-	
-	@Autowired
-	UserDAO userDAO;
 	
 	@Transactional
 	public List<SurveyDTO> getAll() {
@@ -38,8 +34,6 @@ public class SurveyFacade {
 	
 	public boolean create(Survey survey) {
 		try {
-			survey.setCreatedTime(new Date());
-			survey.setUser(user);
 			surveyDAO.create(survey);
 			return true;
 		} catch (Exception e) {

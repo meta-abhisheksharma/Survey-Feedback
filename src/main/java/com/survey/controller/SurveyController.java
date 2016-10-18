@@ -32,8 +32,8 @@ public class SurveyController {
 	
 	
 	@RequestMapping(method=RequestMethod.POST)
-	public ResponseEntity<String> create(@RequestBody Survey survey){
-		boolean value = surveyFacade.create(survey);
+	public ResponseEntity<String> create(@RequestBody Survey surveyDTO){
+		boolean value = surveyFacade.create(surveyDTO);
 		if(value){
 			return new ResponseEntity<String>("survey Created",HttpStatus.OK);
 		}else{

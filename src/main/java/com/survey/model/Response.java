@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -20,7 +22,9 @@ public class Response {
 	@GeneratedValue(generator = "sequence_res_id")
 	private String responseID;
 
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
+	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdTime;
 	private String responseText;
 
