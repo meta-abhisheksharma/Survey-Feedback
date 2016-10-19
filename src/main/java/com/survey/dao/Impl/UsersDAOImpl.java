@@ -1,76 +1,104 @@
-package com.survey.dao.Impl;
+package com.survey.dao.impl;
 
+
+
+import java.util.Iterator;
 import java.util.List;
 
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.survey.dao.UsersDAO;
-import com.survey.model.Survey;
-import com.survey.model.User;
+import com.survey.model.Users;
 
-@Repository
-public class UsersDAOImpl implements UsersDAO{
+@Repository("usersDAO")
+public class UsersDAOImpl implements UsersDAO {
+	
 	@Autowired
 	SessionFactory sessionFactory;
 
-	@Transactional
-	public List<User> getAll(){
-		Session session = sessionFactory.getCurrentSession();
-		List<User> user = session.createCriteria(User.class).list();	
-		return user;
-	}
-	
-	@Transactional
-	public User getByID(String userID) {
-		Session session = sessionFactory.getCurrentSession();
-		return (User)session.get(User.class, userID);
-	}
 
-	@Transactional
-	public void updateByID(String userID,User user) {
-		Session session = sessionFactory.getCurrentSession();
-		session.update(user);
-	}
-
-	@Transactional
-	public void create(User user) {
-		Session session = sessionFactory.getCurrentSession();
-		session.save(user);
-	}
-
-	@Transactional
-	public void deleteByID(String userID) {
-		Session session = sessionFactory.getCurrentSession();
-		User user = (User)session.get(User.class, userID);
-		session.delete(user);
-	}
 
 	@Override
-	public List<Survey> getSurvey(User user) {
+	public void create(Users users) {
+			Long created=null;
+			try {
+				Session session = this.sessionFactory.getCurrentSession();
+				Transaction trans=session.beginTransaction();
+				 created= (Long) session.save(users);
+				trans.commit();
+			} catch (Exception ex) {
+				ex.printStackTrace();
+			}
+
+			
 		
+	}
+
+	
+
+	public void getByEmailAndPassword(String email, String password) {
+		Session session = this.sessionFactory.openSession();
+		try {
+			session.beginTransaction();
+			String hql = "from Users where email = :email and password = :password";
+
+			Query query = session.createQuery(hql);
+			query.setParameter(email, email);
+			query.setParameter(password, password);
+			List<Users> result = query.list();
+
+			System.out.println("resultset:" + result);
+
+			Iterator<Users> iterator = result.iterator();
+			while (iterator.hasNext()) {
+				System.out.println(iterator.next().getName());
+			}
+		} catch (HibernateException e) {
+			if (session.getTransaction() != null) {
+				session.getTransaction().rollback();
+			}
+		} finally {
+			session.close();
+		}
+	}
+
+
+
+	@Override
+	public List<Users> getAll() {
+		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Transactional
-	public User getEmailAndPass(User user) {
-		Session session = sessionFactory.getCurrentSession();
-		Query query =  session.createQuery("from User where email = :email and password = :password");
-		query.setParameter("email", user.getEmail());
-		query.setParameter("password", user.getPassword());
-		return (User) query.uniqueResult();
+
+
+	@Override
+	public Users getByID(String userID) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	@Transactional
-	public User getUserById(String userID) {
-		Session session = sessionFactory.getCurrentSession();
-		Query query =  session.createQuery("from User where userID = :userID");
-		query.setParameter("userID", userID);
+
+
+	@Override
+	public void updateByID(String userID) {
+		// TODO Auto-generated method stub
 		
-		return (User) query.uniqueResult();
 	}
+
+
+
+	@Override
+	public void deleteByID(String userID) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
