@@ -18,7 +18,7 @@ angular.module("myApp").controller("signUpController",['$scope','$http',function
 		// Send data to the server
     	$http({
     		method: 'POST',
-    		  url: '/signUp',
+    		  url: '/surveyfeedback/users',
     		  params:$scope.user
     	}).then(function successCallback(response) {
     	   alert("message");

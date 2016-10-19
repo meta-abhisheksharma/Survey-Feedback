@@ -4,7 +4,6 @@ $scope.submit = function(user) {
 	
 	$scope.loginDetails = {
 			name:null,
-			email:$scope.email,
 			password:$scope.password,
 			email:$scope.email,
 			userRole:null,
@@ -16,13 +15,15 @@ $scope.submit = function(user) {
 	console.log($scope.loginDetails)
 	
     	$http({
-    		method: 'GET',
-    		  url: '/customLogin',
+    		method: 'POST',
+    		  url: '/surveyfeedback/users/login',
     		  data:$scope.loginDetails
     	}).then(function successCallback(response) {
     	   alert("message");
     	  }, function errorCallback(response) {
     	    
+    		  alert("djjshgjh");
+    		  
     	  });
   
   };

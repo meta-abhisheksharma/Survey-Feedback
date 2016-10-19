@@ -37,7 +37,7 @@ public class UsersController {
 	//user verification logic
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<UserDTO> authentication(@RequestBody User user , HttpServletRequest request) {
-		
+	
 		HttpSession session = request.getSession();
 		if (user != null) {
 			System.out.println("" + user.getEmail());

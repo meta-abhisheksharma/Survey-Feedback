@@ -49,6 +49,9 @@
    <script type="text/javascript" src="assets/js/route.js"></script>
    <script type="text/javascript" src="assets/js/controllers/loginController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/signupController.js"></script>
+ <script type="text/javascript" src="assets/js/controllers/userController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/questionController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/surveyController.js"></script>
 
 
    <!-- js placed at the end of the document so the pages load faster -->
