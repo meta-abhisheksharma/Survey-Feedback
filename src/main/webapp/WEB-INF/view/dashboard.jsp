@@ -88,8 +88,8 @@
 		<!-- <div ng-view>
    </div> -->
 		<!-- ngview -->
-		<section id="main-content">
-			<section class="wrapper">
+		<section id="main-content" class ="site-margin-bottom">
+			<section class="wrapper site-min-height ">
 				<h3>
 					<i class="fa fa-angle-right"></i> Add Questions
 				</h3>
@@ -106,42 +106,51 @@
 										<input type="text" class="form-control">
 									</div>
 								</div>
-								<div ng-controller="MainCtrl">
+								<div class="form-group" ng-controller="MainCtrl">
 									<div class="input select required">
-										<label for="QuestionType">Type *</label> <select
-											ng-model="type" id="QuestionType" required="required">
-											<option value="">Select Type</option>
-											<option value="1">Multiple choice-Single answer</option>
-											<option value="2">Mulitiple choice-Multiple answer</option>
-											<option value="3">True/false</option>
-											<option value="4">Email</option>
-											<option value="5">text</option>
-											<option value="6">Yes/no</option>
-										</select>
+										<label class="col-sm-2 control-label" for="QuestionType">Type *</label>
+                    <div class="col-sm-10 col-lg-3 col-md-3">
+                        <select class ="form-control"
+      										ng-model="type" id="QuestionType" required="required">
+      										<option value="">Select Type</option>
+      										<option value="1">Multiple choice-Single answer</option>
+      										<option value="2">Mulitiple choice-Multiple answer</option>
+      										<option value="3">True/false</option>
+      										<option value="4">Email</option>
+      										<option value="5">text</option>
+      										<option value="6">Yes/no</option>
+      									</select>
 									</div>
+                </div>
+									<br />
+									<br />
+									<br />
+						<div class="row">
+									<div class="col-lg-2"></div>
 
+							<div class="col-lg-8">
 									<div ng-if="type==1">
 										<fieldset data-ng-repeat="choice in choices">
-											<input type="text" ng-model="choice.name" name=""
-												placeholder="Enter text">
+											<input type="text" class="form-control" ng-model="choice.name" name=""
+												placeholder="Add option">
 											<button class="remove" ng-show="$last"
 												ng-click="removeChoice()">-</button>
 										</fieldset>
 										<button class="addfields" ng-click="addNewChoice()">Add
 											fields</button>
 									</div>
-
 									<div ng-if="type==2">
 										<fieldset data-ng-repeat="choice in choices">
-											<input type="text" ng-model="choice.name" name=""
-												placeholder="Enter text">
+											<input type="text" class="form-control" ng-model="choice.name" name=""
+												placeholder="Add option">
 											<button class="remove" ng-show="$last"
 												ng-click="removeChoice()">-</button>
 										</fieldset>
-										<button class="addfields" ng-click="addNewChoice()">Add
+										<button class=" btn btn-info addfields" ng-click="addNewChoice()">Add
 											fields</button>
 									</div>
-
+						</div>
+					</div>
 								</div>
 							</div>
 
