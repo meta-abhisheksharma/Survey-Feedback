@@ -43,20 +43,20 @@
                 <fieldset data-ng-repeat="choice in choices">
                   <input type="text" class="form-control" ng-model="choice.name" name=""
                     placeholder="Add option">
-                  <button class="remove" ng-show="$last"
+                  <button class="btn btn-danger remove" ng-show="$last"
                     ng-click="removeChoice()">-</button>
                 </fieldset>
-                <button class="addfields" ng-click="addNewChoice()">Add
+                <button class="btn btn-info addfields" ng-click="addNewChoice()">Add
                   fields</button>
               </div>
               <div ng-if="type==2">
                 <fieldset data-ng-repeat="choice in choices">
                   <input type="text" class="form-control" ng-model="choice.name" name=""
                     placeholder="Add option">
-                  <button class="remove" ng-show="$last"
+                  <button class="btn btn-danger remove" ng-show="$last"
                     ng-click="removeChoice()">-</button>
                 </fieldset>
-                <button class=" btn btn-info addfields" ng-click="addNewChoice()">Add
+                <button class="btn btn-info addfields" ng-click="addNewChoice()">Add
                   fields</button>
               </div>
         </div>
