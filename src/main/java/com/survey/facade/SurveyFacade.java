@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.survey.dao.QuestionsDAO;
 import com.survey.dao.SurveyDAO;
 import com.survey.dto.SurveyDTO;
 import com.survey.model.Survey;
@@ -18,9 +17,6 @@ public class SurveyFacade {
 
 	@Autowired
 	SurveyDAO surveyDAO;
-	/*@Autowired
-	QuestionsDAO questionDAO;
-	@Autowire*/
 	
 	@Transactional
 	public List<SurveyDTO> getAll() {
@@ -36,7 +32,7 @@ public class SurveyFacade {
 		return surveyDTO;
 	}
 
-	@Transactional
+	
 	public boolean create(SurveyDTO surveyDTO) {
 		try {
 			Survey survey = ModelUtils.populateSurvey(surveyDTO);
@@ -48,7 +44,6 @@ public class SurveyFacade {
 		}
 	}
 
-	@Transactional
 	public boolean deleteByID(String surveyID) {
 		try {
 			surveyDAO.deleteByID(surveyID);

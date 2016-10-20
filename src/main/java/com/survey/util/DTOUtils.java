@@ -24,7 +24,7 @@ public class DTOUtils {
 				surveyDTO = new SurveyDTO();
 				surveyDTO.setStatus(survey.getStatus());
 				surveyDTO.setSurveyName(survey.getSurveyName());
-				//surveyDTO.setSurveyID(survey.getSurveyId());
+				surveyDTO.setSurveyID(survey.getSurveyId());
 				surveyDTO.setQuestions(populateQuestionDTO(survey.getQuestionList()));
 				surveyDTOs.add(surveyDTO);
 			}	
@@ -39,7 +39,7 @@ public class DTOUtils {
 			questionDTOs = new ArrayList<QuestionDTO>(questions.size());
 			for (Question question : questions) {
 				questionDTO = new QuestionDTO();
-			//	questionDTO.setQuestionId(question.getQuestionId());
+				questionDTO.setQuestionId(question.getQuestionId());
 				questionDTO.setQuestionText(question.getQuestionText());
 				questionDTO.setOptions(populateQuestionOptionDTO(question
 						.getOptionList()));
@@ -59,7 +59,7 @@ public class DTOUtils {
 				optionDTO = new OptionDTO();
 				optionDTO.setOptionID(option.getOptionID());
 				optionDTO.setOptionText(option.getOptionText());
-			//	optionDTO.setLinkedQuestionId(option.getLinkedQuestion()!=null?option.getLinkedQuestion().getQuestionId():null);
+				optionDTO.setLinkedQuestionId(option.getLinkedQuestion()!=null?option.getLinkedQuestion().getQuestionId():null);
 				optionDTOs.add(optionDTO);
 			}
 		}

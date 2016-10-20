@@ -1,4 +1,4 @@
-angular.module("myApp").controller("surveyController",['$scope','$http',function($scope,$http){
+angular.module("app").controller("surveyController",['$scope','$rootScope','$http',function($scope,$rootScope,$http){
 	
 
 	$scope.getSurvey = function() {
@@ -19,29 +19,17 @@ angular.module("myApp").controller("surveyController",['$scope','$http',function
    
   };
   
-  
-  $scope.create = function() {
-		console.log("In  create survey Controller");
-		// Send data to the server
+  $rootScope.survey={};
+  $rootScope.survey.questions=[];
+  //$rootScope.survey.userID=$rootScope.user.userID;
+  $scope.createSurvey = function() {
+		console.log("In  create survey Controller");				
+		console.log($rootScope.survey);
 		
-		$scope.survey={
-				name:name,
-				type:type,
-				label:label,
-				id:null,
-				status:null,
-		/*		createdBy:,
-				createdTime:,
-				updatedTime:
-		*/
-				
-		}
-		console.log($scope.survey);
-		
-  	$http({
+  /*	$http({
   		method: 'POST',
   		  url: '/add',
-  		  data:survey
+  		  data:$scope.survey
   		}).then(function successCallback(response) {
   			
   			alert(response.data);
@@ -49,11 +37,10 @@ angular.module("myApp").controller("surveyController",['$scope','$http',function
   			alert("message");
   	  }, function errorCallback(response) {  	    
   		  alert("error");
-  	  });
+  	  });*/
  
 };
 
-  
   
 }])
 
