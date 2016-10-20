@@ -229,6 +229,35 @@ hr {
 .bottom-margin{
   margin-bottom: 10px;
 }
+
+/*User profile pic Coonfiguration*/
+.userpic {
+    /*border: 1px dashed #b8b8b8;*/
+    width: 202px;
+    height: 202px;
+    position: relative;
+    cursor: pointer;
+	}
+
+  .userpic .userpic-wrapper {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {

@@ -88,7 +88,81 @@
 							<!-- <div ng-view>
 						</div> -->
 						<!-- ngview -->
-						
+						<!--Profile page -->
+						<section id="main-content" class ="site-margin-bottom">
+						  <section class="wrapper site-min-height ">
+						    <h3>
+						      <i class="fa fa-angle-right"></i> Profile
+						    </h3>
+						    <div class="row mt">
+						      <div class="col-lg-11">
+						        <div class="form-panel">
+						          <div class="form-horizontal style-form">
+						          <h4 class="mb">
+						            <i class="fa fa-angle-right"></i>
+						            General Informations
+						          </h4>
+						            <div class="form-group">
+						              <label class="col-sm-2 control-label btn-font bottom-margin">Picture</label>
+						              <div class="col-sm-10 col-lg-4 userpic">
+
+														<div class="userpic-wrapper">
+															<img src="assets/img/dummy.jpg" class="img-responsive">
+															<!--Change image path as per requirement-->
+														</div>
+														<input type="file" class="">
+						              </div>
+
+
+
+						              <!-- <label class="col-sm-2 control-label btn-font bottom-margin">Last Name</label>
+						              <div class="col-sm-10 col-lg-4">
+						                <input type="text" class="form-control bottom-margin">
+						              </div> -->
+						            </div>
+						            <h4 class="mt mb">
+						              <i class="fa fa-angle-right"></i>
+						              Change Password
+						            </h4>
+						            <div class="form-group">
+						              <label class="col-sm-2 control-label btn-font bottom-margin">New Password</label>
+						              <div class="col-sm-10 col-lg-4">
+						                <input type="password" class="form-control bottom-margin">
+						              </div>
+						              <label class="col-sm-2 control-label btn-font bottom-margin">Confirm Password</label>
+						              <div class="col-sm-10 col-lg-4">
+						                <input type="password" class="form-control bottom-margin">
+						              </div>
+						            </div>
+						            <h4 class="mt mb">
+						              <i class="fa fa-angle-right"></i>
+						              Contact Information
+						            </h4>
+						            <div class="form-group">
+						              <label class="col-sm-2 control-label btn-font bottom-margin">Email</label>
+						              <div class="col-sm-10 col-lg-4">
+						                <input type="email" class="form-control bottom-margin">
+						              </div>
+						              <label class="col-sm-2 control-label btn-font bottom-margin">Phone</label>
+						              <div class="col-sm-10 col-lg-4">
+						                <input type="text" class="form-control bottom-margin">
+						              </div>
+						            </div>
+
+
+						                      </div><!--form-horizontal div-->
+						                    </div>
+						                  </div>
+						                </div><!--Row div-->
+						                <div class="mb"><!--button div starts-->
+						                  <button type="button"
+						                    class="btn btn-theme03 btn-font mL">
+						                    Update Profile <span class="fa fa-check btn-font" aria-hidden="true"></span>
+						                  </button>
+						                </div>
+						              </section>
+						            </section>
+
 
 
 
