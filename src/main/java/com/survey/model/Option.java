@@ -2,6 +2,7 @@ package com.survey.model;
 
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -31,19 +32,19 @@ public class Option {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date Updatedtime;
 
-	@OneToOne
+	@OneToOne()
 	@JoinColumn(name="linked_question_id")
 	private Question linkedQuestion;
 	
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "createdBy")
 	private User createdBy;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name = "updatedBy")
 	private User updatedBy;
 
-	@ManyToOne
+	@ManyToOne()
 	@JoinColumn(name="question_id")
 	private Question question;
 

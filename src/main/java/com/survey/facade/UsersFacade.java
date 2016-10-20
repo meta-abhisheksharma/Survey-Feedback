@@ -24,6 +24,7 @@ public class UsersFacade {
 		List<User>user = userDAO.getAll();
 		return DTOUtils.populateUserDTO(user);
 	}
+	
 	@Transactional
 	public UserDTO verifyUser(User user){
 		User userReturn  = userDAO.getEmailAndPass(user);

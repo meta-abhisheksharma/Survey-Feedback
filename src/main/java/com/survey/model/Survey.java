@@ -3,6 +3,7 @@ package com.survey.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -23,9 +24,10 @@ public class Survey {
 
 	@Id
 	@Column(name="surveyID",nullable=false)
-	@GenericGenerator(name = "sequence_survey_id", strategy = "com.survey.service.ResponseIdGenerator")
+	@GeneratedValue
+	/*@GenericGenerator(name = "sequence_survey_id", strategy = "com.survey.service.ResponseIdGenerator")
 	@GeneratedValue(generator = "sequence_survey_id")
-	private String surveyId;
+	*/private Integer surveyId;
 	
 	@Column(name="surveyName",nullable=false,length=40)
 	private String surveyName;
@@ -48,7 +50,7 @@ public class Survey {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 	
-	@OneToMany(mappedBy="survey")
+	@OneToMany(mappedBy="survey",cascade=CascadeType.ALL)
 	private List<Question> questionList;
 	
 	@ManyToOne
@@ -75,11 +77,11 @@ public class Survey {
 		this.questionList = questionList;
 	}
 	
-	public String getSurveyId() {
+	public Integer getSurveyId() {
 		return surveyId;
 	}
 
-	public void setSurveyId(String surveyId) {
+	public void setSurveyId(Integer surveyId) {
 		this.surveyId = surveyId;
 	}
 

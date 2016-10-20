@@ -40,7 +40,9 @@ public class SurveyDAOImpl implements SurveyDAO{
 
 	public void create(Survey survey) {
 		Session session = sessionFactory.getCurrentSession();
-		session.update(survey);
+		System.out.println(survey.getStatus());
+		System.out.println(survey.getSurveyName());
+		session.save(survey);
 	}
 
 }

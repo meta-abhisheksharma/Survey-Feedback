@@ -18,8 +18,12 @@ public class ModelUtils {
 		if(surveyDTO!=null){
 			survey = new Survey();
 			survey.setCreatedTime(new Date());
-			survey.setLabel("sad");
-			survey.setStatus("N");
+			survey.setSurveyName(surveyDTO.getSurveyName());
+			survey.setStatus(surveyDTO.getStatus());
+			survey.setLabel(surveyDTO.getLabel());
+		//	survey.setSurveyId(surveyDTO.getSurveyID());
+			survey.setSurveyType(surveyDTO.getSurveyType());
+//			survey.setUser(surveyDTO.getUser());
 			survey.setQuestionList(populateQuestion(surveyDTO.getQuestions()));
 		}
 		
@@ -33,7 +37,7 @@ public class ModelUtils {
 			for (QuestionDTO questionDTO : questionDTOs) {
 				Question question = new Question();
 				question.setCreatedTime(new Date());
-				question.setQuestionId(questionDTO.getQuestionId());
+				//question.setQuestionId(questionDTO.getQuestionId());
 				question.setQuestionText(questionDTO.getQuestionText());
 				question.setQuestionType(questionDTO.getQuestionType());
 				question.setOptionList(popuplateOption(questionDTO.getOptions()));

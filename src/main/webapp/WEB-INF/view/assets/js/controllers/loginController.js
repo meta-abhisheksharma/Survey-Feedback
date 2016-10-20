@@ -1,4 +1,4 @@
-angular.module("myApp").controller("loginController",['$scope','$http',function($scope,$http){
+angular.module("myApp").controller("loginController",['$scope','$http','$window',function($scope,$http,$window){
 $scope.submit = function(user) {
 	console.log("jii");
 	
@@ -19,7 +19,7 @@ $scope.submit = function(user) {
     		  url: '/surveyfeedback/users/login',
     		  data:$scope.loginDetails
     	}).then(function successCallback(response) {
-    	   alert("message");
+    		$window.location.href = "/surveyfeedback/dashboard";
     	  }, function errorCallback(response) {
     	    
     		  alert("djjshgjh");
