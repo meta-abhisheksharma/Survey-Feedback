@@ -31,7 +31,7 @@
 			<!-- Logout Section start -->
 			<div class="top-menu">
 				<ul class="nav pull-right top-menu">
-					<li><a class="logout" href="index.jsp">Logout</a></li>
+					<li><a class="logout" href="https://www.google.com/accounts/Logout?continue=https://appengine.google.com/_ah/logout?continue=http://localhost:8080/surveyfeedback/logout">Logout</a></li>
 				</ul>
 			</div>
 			<!-- Logout Section ends -->
@@ -103,11 +103,12 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="assets/js/app2.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/surveyController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/questionController.js"></script>
-	<script type="text/javascript" src="assets/js/factory/surveyFactory.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/optionController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/questionController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/surveyController.js"></script>
+	<script type="text/javascript" src="assets/js/factory/surveyFactory.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/userListController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/userController.js"></script>
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>

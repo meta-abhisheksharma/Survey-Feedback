@@ -118,11 +118,11 @@ public class GoogleAuthenticationController {
 			// retrieving email from the created user object
 			String email = authenticationPojo.getEmail();
 
-			httpSession.setAttribute("LoggedInEmail", email);
 			User user = new User();
 			user.setEmail(email);
 			user.setName(authenticationPojo.getName());
 			user.setCreatedTime(new Date());
+			httpSession.setAttribute("email", user.getEmail());
 
 			// saving to database
 

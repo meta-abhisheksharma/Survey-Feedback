@@ -21,7 +21,6 @@ angular.module("app").controller("userListController",['$scope','$http',function
 			method: 'DELETE',
 			  url: '/users/id'
 			}).then(function successCallback(response) {
-				
 				alert("message");
 		  }, function errorCallback(response) {
 			
