@@ -1,6 +1,6 @@
 	angular.module("myApp").controller("userController",['$scope','$http',function($scope,$http){
 		
-	//Get all users  from the database 
+	/*//Get all users  from the database 
 		$scope.getAllUser = function() {
 			console.log("In User Controller");
 			// Send data to the server
@@ -18,7 +18,7 @@
 				  alert("error");
 			  });
 	   
-	  };
+	  };*/
 
 
 	//Get particular user object from database
@@ -33,7 +33,7 @@
 				alert(response.data);
 				$scope.users=response.data;
 				console.log($scope.users)
-				alert("message");
+				alert("message iiioo");
 		  }, function errorCallback(response) {
 			
 			  alert("error");
@@ -64,7 +64,7 @@
 				alert(response.data);
 				$scope.users=response.data;
 				console.log($scope.users)
-				alert("message");
+				alert("message create");
 		  }, function errorCallback(response) {
 			
 			  alert("error");

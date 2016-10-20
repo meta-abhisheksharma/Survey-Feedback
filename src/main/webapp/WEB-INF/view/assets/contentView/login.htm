@@ -58,21 +58,23 @@
 <div id="login-page" ng-app="myApp">
 	<div class="container">
 		<div class="login-alignment">
-			<form class="form-login" ng-controller="loginController">
+			<form class="form-login" ng-submit="submit()"
+				ng-controller="loginController">
 				<h2 class="form-login-heading">sign in now</h2>
 				<div class="login-wrap">
 					<input type="text" class="form-control" placeholder="User ID"
 						autofocus ng-model="email"> <br> <input
 						type="password" class="form-control" placeholder="Password"
-						ng-model="password"> <label class="checkbox"> <span
+						ng-model="password">
+						<br>
+						 <!-- label class="checkbox"> <span
 						class="pull-right"> <a data-toggle="modal"
 							href="index.jsp#myModal"> Forgot Password?</a>
 
 					</span>
-					</label>
-					<button class="btn btn-theme btn-block" ng-click="customLogin()">
-						<i class="fa fa-lock"></i> SIGN IN
-					</button>
+					</label> -->
+					 <button class="btn btn-theme btn-block" type="submit" ><i class="fa fa-lock"></i> SIGN IN</button>
+    
 					<hr>
 
 					<div class="login-social-link centered">
@@ -87,7 +89,7 @@
 
 						<a id="google-bt"
 							href="
-https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/surveyfeedback/google/authenticate&response_type=code&client_id=1009741184185-l3bbvlk84qcfjnf49j03mgi5tc3mq5gm.apps.googleusercontent.com&approval_prompt=force
+https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/surveyfeedback/&response_type=code&client_id=1009741184185-l3bbvlk84qcfjnf49j03mgi5tc3mq5gm.apps.googleusercontent.com&approval_prompt=force
 				"
 							class="btn btn-google" style="color: yellow;"> Login through
 							google account </a>
@@ -105,7 +107,7 @@ https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localh
 
 
 				<!-- Modal -->
-				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+				<!-- <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
 					tabindex="-1" id="myModal" class="modal fade">
 					<div class="modal-dialog">
 						<div class="modal-content">
@@ -127,7 +129,7 @@ https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localh
 							</div>
 						</div>
 					</div>
-				</div>
+				</div> -->
 				<!-- modal -->
 			</form>
 		</div>

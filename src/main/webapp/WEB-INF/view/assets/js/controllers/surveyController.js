@@ -1,48 +1,59 @@
-angular.module("app").controller("surveyController",['$scope','$rootScope','$http',function($scope,$rootScope,$http){
-	
 
-	$scope.getSurvey = function() {
-		console.log("In survey Controller");
-		// Send data to the server
-    	$http({
-    		method: 'GET',
-    		  url: '/getSurvey'
-    		}).then(function successCallback(response) {
-    			
-    			alert(response.data);
-    			$scope.surveys=response.data;
-    			alert("message");
-    	  }, function errorCallback(response) {
-    	    
-    		  alert("error");
-    	  });
-   
-  };
-  
-  $rootScope.survey={};
-  $rootScope.survey.questions=[];
-  //$rootScope.survey.userID=$rootScope.user.userID;
-  $scope.createSurvey = function() {
-		console.log("In  create survey Controller");				
-		console.log($rootScope.survey);
+angular.module("app").controller("surveyController",['$scope','$http',function($scope,$http){
+$http({
+	method: 'GET',
+	  url: '/surveyfeedback/surveys/'
+	}).then(function successCallback(response) {
+	    
+		$scope.surveys=response.data;
 		
-  /*	$http({
-  		method: 'POST',
-  		  url: '/add',
-  		  data:$scope.survey
-  		}).then(function successCallback(response) {
-  			
-  			alert(response.data);
-  			$scope.surveys=response.data;
-  			alert("message");
-  	  }, function errorCallback(response) {  	    
-  		  alert("error");
-  	  });*/
- 
-};
+	  }, function errorCallback(response) {
+		  alert("error");
+	  });
 
-  
-}])
+
+$scope.deleteSurvey=function(id){
+
+	alert("hiufi"+id);
+	$http({
+		method: 'DELETE',
+		  url: '/surveyfeedback/surveys/id'
+		}).then(function successCallback(response) {
+		    
+			alert("success");
+		  }, function errorCallback(response) {
+			  alert("error");
+		  });
+
+	
+	
+}
+
+
+
+$scope.updateSurvey=function(id){
+	
+	alert("dfo"+id);
+	
+	$http({
+		method: 'PUT',
+		  url: '/surveyfeedback/surveys/id'
+		}).then(function successCallback(response) {
+		    
+	alert("success");
+		  }, function errorCallback(response) {
+			  alert("error");
+		  });
+
+	
+	
+}
+
+
+
+}]);
+
+
 
 
 

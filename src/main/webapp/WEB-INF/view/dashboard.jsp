@@ -61,16 +61,16 @@
 					</a>
 						<ul class="sub">
 							<li><a ui-sref="addsurvey">Add Survey</a></li>
-							<li><a href="editsurvey">Edit Survey</a></li>
-							<li><a href="">Survey List</a></li>
+							<li><a ui-sref="editsurvey">Edit Survey</a></li>
+							<li><a ui-sref="surveylist">Survey List</a></li>
 						</ul></li>
 
 					<li class="sub-menu"><a href="javascript:;"> <i
 							class="fa fa-user"></i> <span>Users</span>
 					</a>
 						<ul class="sub">
-							<li><a href="">Add User</a></li>
-							<li><a href="">User List</a></li>
+							<li><a ui-sref="adduser">Add User</a></li>
+							<li><a ui-sref="userlist">User List</a></li>
 						</ul></li>
 					<li class="sub-menu"><a href="javascript:;"> <i
 							class="fa fa-bar-chart-o"></i> <span>View Report</span>
@@ -107,7 +107,7 @@
 	<script type="text/javascript" src="assets/js/controllers/questionController.js"></script>
 	<script type="text/javascript" src="assets/js/factory/surveyFactory.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/optionController.js"></script>
-
+	<script type="text/javascript" src="assets/js/controllers/userListController.js"></script>
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>

@@ -58,22 +58,6 @@ public class UsersFacade {
 	}
 	
 	@Transactional
-	public UserDTO getUserByEmail(String email) {
-		User userReturn  = userDAO.getUserByEmail(email);
-		if(userReturn != null){
-			UserDTO userDTO = new UserDTO();
-			userDTO.setId(userReturn.getId());
-			userDTO.setEmail(userReturn.getEmail());
-			userDTO.setName(userDTO.getName());
-			userDTO.setUserRole(userDTO.getUserRole());
-			return userDTO;
-			}
-			else{
-				return null;
-			}
-	}
-	
-	@Transactional
 	public void create(User user) {
 		user.setCreatedTime(new Date());
 		userDAO.create(user);

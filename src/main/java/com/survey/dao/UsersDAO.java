@@ -15,6 +15,5 @@ public interface UsersDAO {
 	public List<Survey> getSurvey(User user);
 	public User getEmailAndPass(User user);
 	public User getUserById(String id);
-	public User getUserByEmail(String email);
 	
 }
