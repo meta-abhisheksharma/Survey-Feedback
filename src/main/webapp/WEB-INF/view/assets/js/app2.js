@@ -26,6 +26,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
         .state('addquestion', {
         	url: '/addquestion',
             templateUrl: 'assets/contentView/addQuestions.htm'      
-        });
+        })
+        
+         .state('surveylist', {
+        	url: '/surveylist',
+            templateUrl: 'assets/contentView/surveyList.htm'      
+        }).state('userlist', {
+        	url: '/userlist',
+            templateUrl: 'assets/contentView/userList.htm'      
+        }).state('adduser', {
+        	url: '/adduser',
+            templateUrl: 'assets/contentView/addUser.htm'      
+        });;
+    
         
 });

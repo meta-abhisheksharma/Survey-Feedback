@@ -1,17 +1,12 @@
-angular.module("myApp").controller("signUpController",['$scope','$http',function($scope,$http){
+angular.module("myApp").controller("signUpController",['$scope','$http','$location',function($scope,$http,$location){
 	
 
-	$scope.signUp = function(user) {
+	$scope.signUp = function($location) {
 		console.log("dsl");
 		$scope.user = {
 				name:$scope.name,
 				password:$scope.password,
-				email:$scope.email,
-				userRole:null,
-				blockUser:null,
-			//	createdTime=" ",
-			//	updatedTime=""
-		
+				email:$scope.email	
 		}
 	
 		console.log($scope.user)
@@ -19,12 +14,17 @@ angular.module("myApp").controller("signUpController",['$scope','$http',function
     	$http({
     		method: 'POST',
     		  url: '/surveyfeedback/users',
-    		  params:$scope.user
-    	}).then(function successCallback(response) {
-    	   alert("message");
-    	  }, function errorCallback(response) {
-    	    
-    		  alert("error");
+    		  data:$scope.user
+    	}).then(function successCallback(status) {
+    		console.log("success");
+    		console.log(status);
+//    	   alert("message signUp");
+    	   debugger;
+    	  }, function errorCallback(status) {
+    		  $location.path("dashboard");
+    	    console.log(status);
+    	    debugger;
+//    		  alert("error");
     	  });
    
   };

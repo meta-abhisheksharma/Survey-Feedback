@@ -1,0 +1,62 @@
+
+<section id="main-content" ng-controller="surveyController">
+	<section class="wrapper">
+	<h3>
+			<i class="fa fa-angle-right"></i> UserList
+		</h3>
+		<div class="row mt">
+		
+				<div class="form-panel">
+
+					<table ng-controller="userListController" class="table table-bordered table-responsive table-condensed">
+					<thead>
+						<td>ID</td>
+						<td>Name</td>
+						<td>Email</td>
+						<td>User Role</td>
+						<td>Actions</td>
+					</thead>
+					<tbody ng-repeat="user in users">
+						<td>{{user.id}}</td>
+						<td>{{user.name}}</td>
+						<td>{{user.email}}</td>
+						<td>{{user.userRole}}</td>
+						<td>
+						<a href=""><i class="fa fa-trash-o" aria-hidden="true" ng-click="deleteUser(user.id)"></a></i>
+						<a href=""><i class="fa fa-pencil-square-o" ng-click="updateUser(user.id)"></i></a>
+						</td>
+					</tbody>
+				</table>
+
+
+
+				</div>
+			</div>
+		
+		
+	</section>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

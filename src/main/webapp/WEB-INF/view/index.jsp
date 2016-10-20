@@ -41,7 +41,8 @@
      MAIN SIDEBAR MENU &   MAIN CONTENT
    *********************************************************************************************************************************************************** -->
 		<div ng-view></div>
-		
+		<p>kjehjkhdkjfhsjkdhfjksdhfkjsdhfjkd</p>
+		<div class="g-signin2" data-onsuccess="onSignIn"></div>
 		<!--ngview -->
 
 
@@ -83,7 +84,7 @@
 		});
 	</script>
 	<script>
-		/* function onSignIn(googleUser) {
+		function onSignIn(googleUser) {
 			// Useful data for your client-side scripts:
 			var profile = googleUser.getBasicProfile();
 			console.log("ID: " + profile.getId()); // Don't send this directly to your server!
@@ -94,8 +95,7 @@
 			// The ID token you need to pass to your backend:
 			var id_token = googleUser.getAuthResponse().id_token;
 			console.log("ID Token: " + id_token);
-			$window.location.href = '/authenticate/google';
-		}; */
+		};
 	</script>
 
 </body>
