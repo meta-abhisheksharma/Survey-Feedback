@@ -9,7 +9,6 @@ public class SurveyDTO {
 	private String surveyName;
 	private String status;
 	private String surveyID;
-	private String label;
 	
 	public String getSurveyType() {
 		return surveyType;
@@ -55,13 +54,5 @@ public class SurveyDTO {
 	 */
 	public void setSurveyID(String surveyID) {
 		this.surveyID = surveyID;
-	}
-
-	public String getLabel() {
-		return label;
-	}
-
-	public void setLabel(String label) {
-		this.label = label;
 	}	
 }

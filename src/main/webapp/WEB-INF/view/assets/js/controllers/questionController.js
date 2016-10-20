@@ -1,24 +1,31 @@
-angular.module("myApp").controller("questionController",['$scope','$http',function($scope,$http){
-	
+ 
+angular.module("app").controller("questionController",['$scope','$rootScope',function($scope, $rootScope) {
 
-	$scope.getQuestion = function() {
-		console.log("In Question Controller");
-		// Send data to the server
-    	$http({
-    		method: 'GET',
-    		  url: '/getQuestion'
-    		}).then(function successCallback(response) {
-    			
-    			alert(response.data);
-    			$scope.questions=response.data;
-    			alert("message");
-    	  }, function errorCallback(response) {
-    	    
-    		  alert("error");
-    	  });
-   
-  };
-}])
+							console.log("In  create question");
+							$scope.question = {};
+							$scope.questions = [];
+							$scope.options = [{optionText :null},{optionText :null}];
+							
+							
+							$scope.addNewOption = function() {
+								$scope.options.push({});
+							};
 
-
-
+							$scope.removeOption = function() {
+								var lastItem = $scope.options.length - 1;
+								$scope.options.splice(lastItem);
+							};
+							
+							$scope.addNewQuestion = function() {
+								if($scope.question.questionType == "radio" || $scope.question.questionType == "checkbox"){
+								$scope.question.options = $scope.options;
+								}
+								else{
+									$scope.question.options=null;
+								}
+								$scope.questions.push(angular.copy($scope.question));
+								$rootScope.survey.questions = $scope.questions;
+								console.log($rootScope.survey);
+							};
+							
+						} ])

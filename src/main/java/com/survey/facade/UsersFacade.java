@@ -24,7 +24,6 @@ public class UsersFacade {
 		List<User>user = userDAO.getAll();
 		return DTOUtils.populateUserDTO(user);
 	}
-	
 	@Transactional
 	public UserDTO verifyUser(User user){
 		User userReturn  = userDAO.getEmailAndPass(user);
@@ -45,6 +44,22 @@ public class UsersFacade {
 	@Transactional
 	public UserDTO getUserById(String id) {
 		User userReturn  = userDAO.getUserById(id);
+		if(userReturn != null){
+			UserDTO userDTO = new UserDTO();
+			userDTO.setId(userReturn.getId());
+			userDTO.setEmail(userReturn.getEmail());
+			userDTO.setName(userDTO.getName());
+			userDTO.setUserRole(userDTO.getUserRole());
+			return userDTO;
+			}
+			else{
+				return null;
+			}
+	}
+	
+	@Transactional
+	public UserDTO getUserByEmail(String email) {
+		User userReturn  = userDAO.getUserByEmail(email);
 		if(userReturn != null){
 			UserDTO userDTO = new UserDTO();
 			userDTO.setId(userReturn.getId());

@@ -13,10 +13,8 @@ public class OptionIdGenerator implements IdentifierGenerator {
 	public Serializable generate(SessionImplementor si, Object o)
 			throws HibernateException {
 		Calendar calendar = Calendar.getInstance();
-		String id="opt_" + calendar.get(Calendar.HOUR_OF_DAY)
+		return "opt_" + calendar.get(Calendar.HOUR_OF_DAY)
 				+ calendar.get(Calendar.SECOND) + calendar.get(Calendar.DATE)
 				+ calendar.get(Calendar.YEAR) + calendar.get(Calendar.MONTH);
-		
-		return id;
 	}
 }

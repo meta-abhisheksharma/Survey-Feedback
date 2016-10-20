@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -24,10 +23,9 @@ public class Question {
 
 	@Id
 	@Column(name = "questionID", length = 30)
-	@GeneratedValue
-	/*@GenericGenerator(name = "sequence_que_id", strategy = "com.survey.service.QuestionIdGenerator")
-	@GeneratedValue(generator = "sequence_que_id")*/
-	private Integer questionId;
+	@GenericGenerator(name = "sequence_que_id", strategy = "com.survey.service.QuestionIdGenerator")
+	@GeneratedValue(generator = "sequence_que_id")
+	private String questionId;
 	private String questionType;
 	private String questionText;
 
@@ -44,10 +42,10 @@ public class Question {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date UpdatedTime;
 
-	@OneToMany(mappedBy="question",cascade = CascadeType.ALL)
+	@OneToMany(mappedBy="question")
 	private List<Option> optionList=new ArrayList<Option>();
 
-	@ManyToOne()
+	@ManyToOne
 	@JoinColumn(name="surveyID")
 	private Survey survey;
 
@@ -79,11 +77,11 @@ public class Question {
 	 * @OneToMany(mappedBy = "question", cascade = CascadeType.ALL) private
 	 * Set<Options> questionOptions = new HashSet<Options>();
 	 */
-	public Integer getQuestionId() {
+	public String getQuestionId() {
 		return questionId;
 	}
 
-	public void setQuestionId(Integer questionId) {
+	public void setQuestionId(String questionId) {
 		this.questionId = questionId;
 	}
 

@@ -37,12 +37,12 @@ public class UsersController {
 	//user verification logic
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<UserDTO> authentication(@RequestBody User user , HttpServletRequest request) {
-		
+	
 		HttpSession session = request.getSession();
 		if (user != null) {
+			System.out.println("" + user.getEmail());
 			UserDTO userDTO = usersFacade.verifyUser(user);
 			if (userDTO != null) {
-				session.setAttribute("email", userDTO);
 				return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<UserDTO>(HttpStatus.NOT_FOUND);
@@ -54,6 +54,25 @@ public class UsersController {
 		}
 	}
 
+	@RequestMapping(value = "/emailvarify", method = RequestMethod.POST)
+	public ResponseEntity<UserDTO> authenticationByEmail(@RequestBody User user) {
+		
+		
+		if (user != null) {
+			
+			UserDTO userDTO = usersFacade.getUserByEmail(user.getEmail());
+			if (userDTO != null) {
+				return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);
+			} else {
+				return new ResponseEntity<UserDTO>(HttpStatus.NOT_FOUND);
+			}
+
+		} else {
+			return new ResponseEntity<UserDTO>(HttpStatus.INTERNAL_SERVER_ERROR);
+
+		}
+	}
+	
 	
 	//get User by id
 	@RequestMapping(value = "{id}", method = RequestMethod.GET)

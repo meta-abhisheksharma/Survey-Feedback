@@ -1,4 +1,4 @@
-<section id="main-content" class ="site-margin-bottom">
+<section id="main-content" class ="site-margin-bottom" ng-controller="questionController">
   <section class="wrapper site-min-height ">
     <h3>
       <i class="fa fa-angle-right"></i> Add Questions
@@ -13,22 +13,20 @@
             <div class="form-group">
               <label class="col-sm-2 control-label">Question</label>
               <div class="col-sm-10 col-lg-8">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" ng-model="question.questionText">
               </div>
             </div>
-            <div class="form-group" ng-controller="MainCtrl">
+            <div class="form-group" >
               <div class="input select required">
                 <label class="col-sm-2 control-label" for="QuestionType">Type *</label>
                 <div class="col-sm-10 col-lg-3 col-md-3">
                     <select class ="form-control"
-                      ng-model="type" id="QuestionType" required="required">
+                      ng-model="question.questionType" id="QuestionType" required="required">
                       <option value="">Select Type</option>
-                      <option value="1">Multiple choice-Single answer</option>
-                      <option value="2">Mulitiple choice-Multiple answer</option>
-                      <option value="3">True/false</option>
-                      <option value="4">Email</option>
-                      <option value="5">text</option>
-                      <option value="6">Yes/no</option>
+                      <option value="checkbox">Multiple choice-Single answer</option>
+                      <option value="radio">Mulitiple choice-Multiple answer</option>
+                      <option value="text">text</option>
+  
                     </select>
               </div>
             </div>
@@ -39,24 +37,14 @@
               <div class="col-lg-2"></div>
 
           <div class="col-lg-8">
-              <div ng-if="type==1">
-                <fieldset data-ng-repeat="choice in choices">
-                  <input type="text" class="form-control" ng-model="choice.name" name=""
+              <div ng-if= 'question.questionType=="checkbox" || question.questionType=="radio" '>
+                <fieldset data-ng-repeat="option in options">
+                  <input type="text" class="form-control" ng-model="options[$index].optionText" name=""
                     placeholder="Add option">
                   <button class="remove" ng-show="$last"
-                    ng-click="removeChoice()">-</button>
+                    ng-click="removeOption()">-</button>
                 </fieldset>
-                <button class="addfields" ng-click="addNewChoice()">Add
-                  fields</button>
-              </div>
-              <div ng-if="type==2">
-                <fieldset data-ng-repeat="choice in choices">
-                  <input type="text" class="form-control" ng-model="choice.name" name=""
-                    placeholder="Add option">
-                  <button class="remove" ng-show="$last"
-                    ng-click="removeChoice()">-</button>
-                </fieldset>
-                <button class=" btn btn-info addfields" ng-click="addNewChoice()">Add
+                <button class="addfields" ng-click="addNewOption()">Add
                   fields</button>
               </div>
         </div>
@@ -75,7 +63,7 @@
         <span class="glyphicon glyphicon-chevron-left icon-font"></span>
         Back
       </button>
-      <button type="button"
+      <button type="button" ng-click="addNewQuestion()"
         class="btn btn-theme03 mL btn-font btn-padding">
         Next <span class="glyphicon glyphicon-chevron-right icon-font"></span>
       </button>
