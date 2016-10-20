@@ -41,8 +41,6 @@
      MAIN SIDEBAR MENU &   MAIN CONTENT
    *********************************************************************************************************************************************************** -->
 		<div ng-view></div>
-		<p>kjehjkhdkjfhsjkdhfjksdhfkjsdhfjkd</p>
-		<div class="g-signin2" data-onsuccess="onSignIn"></div>
 		<!--ngview -->
 
 
@@ -82,20 +80,6 @@
 		$.backstretch("assets/img/login-images.jpg", {
 			speed : 500
 		});
-	</script>
-	<script>
-		function onSignIn(googleUser) {
-			// Useful data for your client-side scripts:
-			var profile = googleUser.getBasicProfile();
-			console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-			console.log("Name: " + profile.getName());
-			console.log("Image URL: " + profile.getImageUrl());
-			console.log("Email: " + profile.getEmail());
-
-			// The ID token you need to pass to your backend:
-			var id_token = googleUser.getAuthResponse().id_token;
-			console.log("ID Token: " + id_token);
-		};
 	</script>
 
 </body>

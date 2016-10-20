@@ -40,9 +40,9 @@ public class UsersController {
 	
 		HttpSession session = request.getSession();
 		if (user != null) {
-			System.out.println("" + user.getEmail());
 			UserDTO userDTO = usersFacade.verifyUser(user);
 			if (userDTO != null) {
+				session.setAttribute("email", user.getEmail());
 				return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<UserDTO>(HttpStatus.NOT_FOUND);
@@ -89,7 +89,7 @@ public class UsersController {
 
 	
 	//update user 
-	@RequestMapping(value ="/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value ="{id}", method = RequestMethod.PUT)
 	public ResponseEntity<String> update(@PathVariable(value = "id") String id,@RequestBody User user) {
 		if (user != null) {
 			usersFacade.updateByID(id, user);
@@ -133,4 +133,22 @@ public class UsersController {
 		
 	}
 
+	@RequestMapping(value = "/emailvarify", method = RequestMethod.POST)		
+ 	public ResponseEntity<UserDTO> authenticationByEmail(@RequestBody User user) {		
+ 				
+ 				
+ 		if (user != null) {		
+ 					
+ 			UserDTO userDTO = usersFacade.getUserByEmail(user.getEmail());		
+ 			if (userDTO != null) {		
+ 				return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);		
+ 			} else {		
+ 				return new ResponseEntity<UserDTO>(HttpStatus.NOT_FOUND);		
+ 			}		
+ 		
+ 		} else {		
+ 			return new ResponseEntity<UserDTO>(HttpStatus.INTERNAL_SERVER_ERROR);		
+ 		
+ 		}		
+ 	}
 }

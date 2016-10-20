@@ -73,4 +73,14 @@ public class UsersDAOImpl implements UsersDAO{
 		
 		return (User) query.uniqueResult();
 	}
+	
+	@Transactional		
+ 	public User getUserByEmail(String email) {		
+ 		Session session = sessionFactory.getCurrentSession();		
+ 		Query query =  session.createQuery("from User where email = :email");		
+ 		query.setParameter("email", email);		
+ 				
+ 		return (User) query.uniqueResult();		
+ 	}
+	
 }
