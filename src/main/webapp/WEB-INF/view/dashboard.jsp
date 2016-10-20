@@ -88,89 +88,9 @@
 							<!-- <div ng-view>
 						</div> -->
 						<!-- ngview -->
+						
 
-						<section id="main-content" class ="site-margin-bottom">
-							<section class="wrapper site-min-height ">
-								<h3>
-									<i class="fa fa-angle-right"></i> Add Questions
-								</h3>
-								<div class="row mt">
-									<div class="col-lg-11">
-										<div class="form-panel">
-											<h4 class="mb">
-												<i class="fa fa-angle-right"></i>
-												Survey details
-											</h4>
-											<div class="form-horizontal style-form">
-												<div class="form-group">
-													<label class="col-sm-2 control-label">Question</label>
-													<div class="col-sm-10 col-lg-8">
-														<input type="text" class="form-control">
-													</div>
-												</div><!--Questions div-->
-													<div class="form-group" ng-controller="MainCtrl">
-														<div class="input select required">
-															<label class="col-sm-2 control-label" for="QuestionType">Type *</label>
-															<div class="col-sm-10 col-lg-4 col-md-4">
-																<select class ="form-control"
-																	ng-model="type" id="QuestionType" required="required">
-																	<option value="">Select Type</option>
-																	<option value="1">Multiple choice-Single answer</option>
-																	<option value="2">Mulitiple choice-Multiple answer</option>
-																	<option value="3">True/false</option>
-																	<option value="4">Email</option>
-																	<option value="5">text</option>
-																	<option value="6">Yes/no</option>
-																</select>
-															</div>
-														</div>
-														<br />
-														<br />
-														<br />
-														<%-- <div class="row"> --%>
-															<%-- <div class="col-sm-2"> </div> --%>
-															<div class="col-sm-10 col-lg-8 col-md-offset-2">
-																<div ng-if="type==1">
-																	<fieldset data-ng-repeat="choice in choices">
-																		<input type="text" class="form-control" ng-model="choice.name" name=""
-																			placeholder="Add option">
-																			<button class="btn btn-danger remove" ng-show="$last"
-																				ng-click="removeChoice()"><span class="glyphicon glyphicon-remove icon-font"></span></button>
-																			</fieldset>
-																			<button class="btn btn-info addfields" ng-click="addNewChoice()">Add
-																				fields</button>
-																			</div>
-																			<div ng-if="type==2">
-																				<fieldset data-ng-repeat="choice in choices">
-																					<input type="text" class="form-control" ng-model="choice.name" name=""
-																						placeholder="Add option">
-																						<button class="btn btn-danger remove" ng-show="$last"
-																							ng-click="removeChoice()"><span class="glyphicon glyphicon-remove icon-font"></span></button>
-																						</fieldset>
-																						<button class="btn btn-info addfields" ng-click="addNewChoice()">Add
-																							fields
-																						</button>
-																					</div>
-																				</div>
-																			<%-- </div> --%>
-																		</div><!--Dropdown options div-->
-																	</div><!--form-horizontal div-->
-																</div>
-															</div>
-														</div><!--Row div-->
-														<div class="mb"><!--button div starts-->
-															<button type="button"
-																class="btn btn-theme04 mL btn-font btn-padding">
-																<span class="glyphicon glyphicon-chevron-left icon-font"></span>
-																Back
-															</button>
-															<button type="button"
-																class="btn btn-theme03 mL btn-font btn-padding">
-																Next <span class="glyphicon glyphicon-chevron-right icon-font"></span>
-															</button>
-														</div>
-													</section>
-												</section>
+
 
 
 												<!-- **********************************************************************************************************************************************************
@@ -204,7 +124,6 @@
 											});
 
 										</script> -->
-
 
 									</body>
 								</html>

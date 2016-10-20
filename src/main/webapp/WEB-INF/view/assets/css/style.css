@@ -161,6 +161,9 @@ hr {
 
 /*Helpers*/
 
+.put-margin{
+  margin:5px;
+}
 .centered {
 	text-align: center;
 }
@@ -199,11 +202,17 @@ hr {
 .icon-font{
   font-size: 14px;
 }
+.icon-font-big{
+  font-size: 20px;
+}
+
+.label-font{
+  font-size: 15px;
+}
 
 .site-margin-bottom {
 	margin-bottom: 100px;
 }
-
 
 .no-padding {
 	padding: 0 !important;
@@ -213,6 +222,13 @@ hr {
 	margin: 0 !important;
 }
 
+.display-inline{
+  display: inline;
+  float: left;
+}
+.bottom-margin{
+  margin-bottom: 10px;
+}
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
