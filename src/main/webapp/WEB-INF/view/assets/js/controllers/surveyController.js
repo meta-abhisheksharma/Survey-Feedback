@@ -1,5 +1,6 @@
 
-angular.module("app").controller("surveyController",['$scope','$http',function($scope,$http){
+angular.module("app").controller("surveyController",['$scope','$http','$rootScope',function($scope,$http,$rootScope){
+	
 $http({
 	method: 'GET',
 	  url: '/surveyfeedback/surveys/'
@@ -14,7 +15,8 @@ $http({
 
 $scope.deleteSurvey=function(id){
 
-	alert("hiufi"+id);
+	console.log($scope.surveys);
+
 	$http({
 		method: 'DELETE',
 		  url: '/surveyfeedback/surveys/id'
@@ -25,15 +27,12 @@ $scope.deleteSurvey=function(id){
 			  alert("error");
 		  });
 
-	
-	
 }
 
 
 
 $scope.updateSurvey=function(id){
-	
-	alert("dfo"+id);
+
 	
 	$http({
 		method: 'PUT',
@@ -46,6 +45,14 @@ $scope.updateSurvey=function(id){
 		  });
 
 	
+	
+}
+
+
+
+$scope.displaySurvey=function(id){
+
+	$rootScope.questions=$scope.surveys[id].questions;
 	
 }
 
