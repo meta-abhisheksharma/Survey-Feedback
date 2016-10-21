@@ -23,13 +23,13 @@ public class User {
 	private String email;
 	private String password;
 	private String userRole;
-	private String blockUser;
+	private Boolean blockUser;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdTime;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 	
-	@OneToMany(mappedBy="user")
+	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
 	private List<Survey> survey;
 	
 	
@@ -71,10 +71,10 @@ public class User {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
-	public String getBlockUser() {
+	public Boolean getBlockUser() {
 		return blockUser;
 	}
-	public void setBlockUser(String blockUser) {
+	public void setBlockUser(Boolean blockUser) {
 		this.blockUser = blockUser;
 	}
 	public Date getCreatedTime() {

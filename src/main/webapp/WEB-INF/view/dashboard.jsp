@@ -12,7 +12,6 @@
 <!-- Custom styles for this template -->
 <link href="assets/css/style.css" rel="stylesheet" />
 <link href="assets/css/style-responsive.css" rel="stylesheet">
-<link href="assets/css/ng-tags-input.min.css" rel="stylesheet">
 </head>
 
 <body ng-app="app">
@@ -86,7 +85,6 @@
 		  MAIN CONTENT
 		*********************************************************************************************************************************************************** -->
 
-
 		 <div ui-view> </div>
 		<!-- ngview -->
 		
@@ -105,22 +103,12 @@
 	<script type="text/javascript"
 		src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
 	<script type="text/javascript" src="assets/js/app2.js"></script>
-	<script type="text/javascript" src="assets/js/ng-tags-input.min.js"></script>
-	
-	
-	
 	<script type="text/javascript" src="assets/js/controllers/optionController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/questionController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/surveyController.js"></script>
 	<script type="text/javascript" src="assets/js/factory/surveyFactory.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/userListController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/userController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/questionListController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/emailController.js"></script>
-	
-	
-
-	
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>

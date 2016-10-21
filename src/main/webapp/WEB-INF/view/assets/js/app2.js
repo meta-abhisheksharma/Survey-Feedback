@@ -32,18 +32,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         	url: '/surveylist',
             templateUrl: 'assets/contentView/surveyList.htm'      
         }).state('userlist', {
-        	url: '/userlist',
+        	url: '/admin/userlist',
             templateUrl: 'assets/contentView/userList.htm'      
         }).state('adduser', {
         	url: '/adduser',
             templateUrl: 'assets/contentView/addUser.htm'      
-        }).state('invitation', {
-        	url: '/invitation',
-            templateUrl: 'assets/contentView/invitation.htm'      
-        }).state('questions', {
-        	url: '/questions',
-            templateUrl: 'assets/contentView/questions.htm'
-        });
+        });;
     
         
 });

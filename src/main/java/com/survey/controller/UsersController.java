@@ -76,8 +76,6 @@ public class UsersController {
 	//create user
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<User> create(@RequestBody User user) {
-		
-		
 		if (user != null) {
 			usersFacade.create(user);
 			return new ResponseEntity<User>(user,HttpStatus.OK);
@@ -134,22 +132,23 @@ public class UsersController {
 		}
 		
 	}
-
+	
+	//authenticate user by email
 	@RequestMapping(value = "/emailvarify", method = RequestMethod.POST)		
- 	public ResponseEntity<UserDTO> authenticationByEmail(@RequestBody User user) {		
+ 	public UserDTO authenticationByEmail(@RequestBody User user) {		
  				
  				
  		if (user != null) {		
  					
  			UserDTO userDTO = usersFacade.getUserByEmail(user.getEmail());		
  			if (userDTO != null) {		
- 				return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);		
+ 				return userDTO;		
  			} else {		
- 				return new ResponseEntity<UserDTO>(HttpStatus.NOT_FOUND);		
+ 				return null ;		
  			}		
  		
  		} else {		
- 			return new ResponseEntity<UserDTO>(HttpStatus.INTERNAL_SERVER_ERROR);		
+ 			return null;		
  		
  		}		
  	}

@@ -33,7 +33,7 @@
 						</thead>
 						<tbody ng-repeat="survey in surveys| filter :search">
 							<td>{{survey.surveyID}}</td>
-							<td><a ui-sref="questions" ng-click="displaySurvey($index)">{{survey.surveyName}}</a></td>
+							<td><a href="" ng-click="displaySurvey($index)">{{survey.surveyName}}</a></td>
 							<td>{{survey.status}}</td>
 							<td>{{survey.surveyType}}</td>
 							<td><a href=""><i class="fa fa-trash-o"
