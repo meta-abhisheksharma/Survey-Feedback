@@ -1,66 +1,112 @@
 <!--Profile page -->
-<section id="main-content" class ="site-margin-bottom">
-  <section class="wrapper site-min-height ">
-    <h3>
-      <i class="fa fa-angle-right"></i> Profile
-    </h3>
-    <div class="row mt">
-      <div class="col-lg-11">
-        <div class="form-panel">
-          <div class="form-horizontal style-form">
-          <h4 class="mb">
+<section id="main-content" class="site-margin-bottom">
+    <section class="wrapper site-min-height ">
+        <h3>
             <i class="fa fa-angle-right"></i>
-            General Informations
-          </h4>
-            <div class="form-group">
-              <label class="col-sm-2 control-label btn-font bottom-margin">First Name</label>
-              <div class="col-sm-10 col-lg-4">
-                <input type="text" class="form-control bottom-margin">
-              </div>
-              <label class="col-sm-2 control-label btn-font bottom-margin">Last Name</label>
-              <div class="col-sm-10 col-lg-4">
-                <input type="text" class="form-control bottom-margin">
-              </div>
-            </div>
-            <h4 class="mt mb">
-              <i class="fa fa-angle-right"></i>
-              Change Password
-            </h4>
-            <div class="form-group">
-              <label class="col-sm-2 control-label btn-font bottom-margin">New Password</label>
-              <div class="col-sm-10 col-lg-4">
-                <input type="password" class="form-control bottom-margin">
-              </div>
-              <label class="col-sm-2 control-label btn-font bottom-margin">Confirm Password</label>
-              <div class="col-sm-10 col-lg-4">
-                <input type="password" class="form-control bottom-margin">
-              </div>
-            </div>
-            <h4 class="mt mb">
-              <i class="fa fa-angle-right"></i>
-              Contact Information
-            </h4>
-            <div class="form-group">
-              <label class="col-sm-2 control-label btn-font bottom-margin">Email</label>
-              <div class="col-sm-10 col-lg-4">
-                <input type="email" class="form-control bottom-margin">
-              </div>
-              <label class="col-sm-2 control-label btn-font bottom-margin">Phone</label>
-              <div class="col-sm-10 col-lg-4">
-                <input type="text" class="form-control bottom-margin">
-              </div>
-            </div>
+            Profile
+        </h3>
+        <div class="row mt">
+            <div class="col-lg-11">
+                <div class="form-panel">
+                    <div class="form-horizontal style-form">
+                        <h4 class="mb">
+                            <i class="fa fa-angle-right"></i>
+                            General Informations
+                        </h4>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label btn-font bottom-margin">Picture</label>
+                            <div class="col-sm-10 col-lg-4 userpic">
 
+                                <div class="userpic-wrapper container-fluid mb">
+                                    <img
+                                        data-toggle="modal"
+                                        href="dashboard.jsp#myModal"
+                                        ng-src="{{myCroppedImage}}"
+                                        src="https://lh3.googleusercontent.com/-OQyKqE7TM_0/V4h_q0VG6XI/AAAAAAAAACA/vOx55OM4Kn4TRDjoIz9No0S-8MfiwvEFgCEw/w139-h140-p/P_20160118_190903_1_BF_p.jpg"
+                                        class="img-responsive streched">
+                                    <!-- <img src="https://lh3.googleusercontent.com/-OQyKqE7TM_0/V4h_q0VG6XI/AAAAAAAAACA/vOx55OM4Kn4TRDjoIz9No0S-8MfiwvEFgCEw/w139-h140-p/P_20160118_190903_1_BF_p.jpg" class="img-responsive streched" class=""> -->
+                                    <!--Change image path as per requirement-->
+                                </div>
 
-                      </div><!--form-horizontal div-->
+                            </div>
+                            <!--
+                            <div style="clear:both;" ></div>
+                            -->
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label btn-font bottom-margin">First Name</label>
+                            <div class="col-sm-10 col-lg-4">
+                                <input type="text" class="form-control bottom-margin">
+                            </div>
+                            <label class="col-sm-2 control-label btn-font bottom-margin">Last Name</label>
+                            <div class="col-sm-10 col-lg-4">
+                                <input type="text" class="form-control bottom-margin">
+                            </div>
+                        </div>
+                        <h4 class="mt mb">
+                            <i class="fa fa-angle-right"></i>
+                            Change Password
+                        </h4>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label btn-font bottom-margin">New Password</label>
+                            <div class="col-sm-10 col-lg-4">
+                                <input type="password" class="form-control bottom-margin">
+                            </div>
+                            <label class="col-sm-2 control-label btn-font bottom-margin">Confirm Password</label>
+                            <div class="col-sm-10 col-lg-4">
+                                <input type="password" class="form-control bottom-margin">
+                            </div>
+                        </div>
+                        <h4 class="mt mb">
+                            <i class="fa fa-angle-right"></i>
+                            Contact Information
+                        </h4>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label btn-font bottom-margin">Email</label>
+                            <div class="col-sm-10 col-lg-4">
+                                <input type="email" class="form-control bottom-margin">
+                            </div>
+                            <label class="col-sm-2 control-label btn-font bottom-margin">Phone</label>
+                            <div class="col-sm-10 col-lg-4">
+                                <input type="text" class="form-control bottom-margin">
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                </div><!--Row div-->
-                <div class="mb"><!--button div starts-->
-                  <button type="button"
-                    class="btn btn-theme03 btn-font mL">
-                    Update Profile <span class="fa fa-check btn-font" aria-hidden="true"></span>
-                  </button>
+                    <!--form-horizontal div-->
                 </div>
-              </section>
-            </section>
+            </div>
+        </div>
+        <!--Row div-->
+        <div class="mb">
+            <!--button div starts-->
+            <button type="button" class="btn btn-theme03 btn-font mL">
+                Update Profile
+                <span class="fa fa-check btn-font" aria-hidden="true"></span>
+            </button>
+        </div>
+    </section>
+</section>
+<!-- Modal -->
+<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Change Profile picture</h4>
+            </div>
+            <div class="modal-body">
+                <div class="mb">Select an image file:
+                    <input type="file" id="fileInput"/>
+                </div>
+                <div class="cropArea">
+                    <img-crop image="myImage" result-image="myCroppedImage"></img-crop>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
+                <button class="btn btn-theme" type="button">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal -->

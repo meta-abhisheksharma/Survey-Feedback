@@ -23,7 +23,7 @@
           <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
         </div>
       <!--logo start-->
-      <a href="index.jsp" class="logo"><b>Survey Feeedback</b></a>
+      <a href="index.jsp" class="logo"><b>Survey Feedback</b></a>
       <!--logo end-->
     </header>
     <!--header end-->
