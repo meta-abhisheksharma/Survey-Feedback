@@ -154,7 +154,7 @@
 						                             <div class="col-sm-6 col-xs-6"></div>
 						                         </div>
 						                         <div class="centered">
-						                             <img src="assets/img/product.png" width="120">
+						                             <!-- <img src="assets/img/product.png" width="120"> -->
 						                         </div>
 						                     </div>
 						                 </div>
@@ -175,7 +175,7 @@
 						                             <div class="col-sm-6 col-xs-6"></div>
 						                         </div>
 						                         <div class="centered">
-						                             <img src="assets/img/product.png" width="120">
+						                             <!-- <img src="assets/img/product.png" width="120"> -->
 						                         </div>
 						                     </div>
 						                 </div>
