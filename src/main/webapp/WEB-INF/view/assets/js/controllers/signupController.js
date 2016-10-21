@@ -2,14 +2,14 @@ angular.module("myApp").controller("signUpController",['$scope','$http','$locati
 	
 
 	$scope.signUp = function($location) {
-		console.log("dsl");
+		
 		$scope.user = {
 				name:$scope.name,
 				password:$scope.password,
 				email:$scope.email	
 		}
 	
-		console.log($scope.user)
+		
 		// Send data to the server
     	$http({
     		method: 'POST',
@@ -19,11 +19,11 @@ angular.module("myApp").controller("signUpController",['$scope','$http','$locati
     		console.log("success");
     		console.log(status);
 //    	   alert("message signUp");
-    	   debugger;
+    	
     	  }, function errorCallback(status) {
     		  $location.path("dashboard");
     	    console.log(status);
-    	    debugger;
+    	   
 //    		  alert("error");
     	  });
    

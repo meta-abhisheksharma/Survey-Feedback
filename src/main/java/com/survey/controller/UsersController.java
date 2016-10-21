@@ -76,6 +76,8 @@ public class UsersController {
 	//create user
 	@RequestMapping(method = RequestMethod.POST)
 	public ResponseEntity<User> create(@RequestBody User user) {
+		
+		
 		if (user != null) {
 			usersFacade.create(user);
 			return new ResponseEntity<User>(user,HttpStatus.OK);

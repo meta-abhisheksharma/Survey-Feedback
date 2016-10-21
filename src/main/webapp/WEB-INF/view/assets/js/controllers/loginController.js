@@ -19,12 +19,13 @@ $scope.submit = function() {
     		  url: '/surveyfeedback/users/login',
     		  data:$scope.loginDetails
     	}).then(function successCallback(response) {
-    	   alert("message login");
+    	  
     	   $window.location.href = '/surveyfeedback/dashboard';
     	  }, function errorCallback(response) {
     	    
-    		  alert("djjshgjh");
-    		  
+    		  var myEl = angular.element( document.querySelector( '#error' ) );
+    		  myEl.css('display','inline');
+    	
     	  });
   
   };

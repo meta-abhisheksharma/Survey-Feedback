@@ -29,7 +29,7 @@ public class User {
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 	
-	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
+	@OneToMany(mappedBy="user")
 	private List<Survey> survey;
 	
 	

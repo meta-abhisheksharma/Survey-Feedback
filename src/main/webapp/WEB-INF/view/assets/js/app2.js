@@ -37,7 +37,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }).state('adduser', {
         	url: '/adduser',
             templateUrl: 'assets/contentView/addUser.htm'      
-        });;
+        }).state('invitation', {
+        	url: '/invitation',
+            templateUrl: 'assets/contentView/invitation.htm'      
+        }).state('questions', {
+        	url: '/questions',
+            templateUrl: 'assets/contentView/questions.htm'
+        });
     
         
 });
