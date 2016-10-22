@@ -113,6 +113,8 @@
 	<script type="text/javascript" src="assets/js/controllers/questionListController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/emailController.js"></script>
 	<script type="text/javascript" src="assets/js/ng-tags-input.min.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/addQuestionController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/addSurveyController.js"></script>
 	<!-- js placed at the end of the document so the pages load faster -->
 	<script src="assets/js/jquery-1.8.3.min.js"></script>
 	<script src="assets/js/bootstrap.min.js"></script>

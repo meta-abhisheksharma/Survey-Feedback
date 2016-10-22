@@ -11,9 +11,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public class PageController {
 	
 	@RequestMapping(value={"/","/login"},method=RequestMethod.GET)
-	public String getPageView(){
-		System.out.println("jsgh");
-		return "index";
+	public String getPageView(HttpServletRequest request){
+		System.out.println("index page");
+		HttpSession session = request.getSession();
+		String email = (String) session.getAttribute("email");
+		if (email == null || request == null) {
+			return "index";
+		}
+		return "dashboard";
 	}
 	
 	@RequestMapping(value={"/dashboard","/dashboard/*"},method=RequestMethod.GET)
@@ -35,10 +40,4 @@ public class PageController {
 		session.invalidate();
 		return "index";
 	}
-	/*@RequestMapping(value="/addsurvey",method=RequestMethod.GET)
-	public String addSurvey(){
-		System.out.println("addSurvey");
-		return "addSurvey.htm";
-	}
-	*/
 }

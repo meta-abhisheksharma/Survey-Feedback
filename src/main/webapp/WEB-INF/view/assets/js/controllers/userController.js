@@ -58,7 +58,8 @@
 		
 		$http({
 			method: 'POST',
-			  url: '/users'
+			  url: 'users',
+			  data:$scope.user
 			}).then(function successCallback(response) {
 				
 				alert(response.data);

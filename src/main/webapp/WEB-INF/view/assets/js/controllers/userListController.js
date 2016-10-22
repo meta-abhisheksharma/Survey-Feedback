@@ -28,6 +28,29 @@ angular.module("app").controller("userListController",['$scope','$http',function
 		  });
 
 	};
+	
+	
+	
+	  $scope.getUserById = function(id) {
+			console.log("In User Controller");
+			// Send data to the server
+		$http({
+			method: 'GET',
+			  url: '/users/id'
+			}).then(function successCallback(response) {
+				
+				alert(response.data);
+				$scope.users=response.data;
+				console.log($scope.users)
+				alert("message iiioo");
+		  }, function errorCallback(response) {
+			
+			  alert("error");
+		  });
+	 
+	};
+
+	
 
 
 }]);

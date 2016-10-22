@@ -1,0 +1,79 @@
+<!-- Add questions page -->
+<section id="main-content" class="site-margin-bottom"
+	ng-controller="addQuestionController">
+	<section class="wrapper site-min-height ">
+		<h3>
+			<i class="fa fa-angle-right"></i> Add Questions
+		</h3>
+		<div class="row mt">
+			<div class="col-lg-11">
+				<div class="form-panel">
+					<h4 class="mb">
+						<i class="fa fa-angle-right"></i> Survey Questions details
+					</h4>
+					<div class="form-horizontal style-form">
+						<div class="form-group">
+							<label class="col-sm-2 control-label">Question</label>
+							<div class="col-sm-10 col-lg-8">
+								<input type="text" ng-model="question.questionText" class="form-control">
+							</div>
+						</div>
+						<!--Questions div-->
+						<div class="form-group">
+							<div class="input select required">
+								<label class="col-sm-2 control-label" for="QuestionType">Type
+									*</label>
+								<div class="col-sm-10 col-md-4 col-lg-3 ">
+									<select class="form-control" ng-model="question.questionType" id="QuestionType" required="required"
+										required="required">
+										<option value="">Select Type</option>
+										<option value="radio">Multiple choice-Single answer</option>
+										<option value="checkbox">Mulitiple choice-Multiple
+											answer</option>
+										<option value="text">Text</option>
+									</select>
+								</div>
+							</div>
+							<br /> <br /> <br />
+							<!-- <div class="row"> -->
+							<!-- <div class="col-sm-2"> </div>  -->
+							<div class="col-sm-10 col-lg-6 col-md-offset-2 ">
+								<div
+									ng-if='question.questionType=="checkbox" || question.questionType=="radio" '>
+									<div data-ng-repeat="option in options">
+										<input type="text" class="form-control bottom-margin"
+											ng-model="options[$index].optionText" name=""
+											placeholder="Add option" />
+										<button class="btn btn-danger display-inline" ng-show="$last"
+											ng-click="removeOption()">
+											<span class="glyphicon glyphicon-remove icon-font"></span>
+										</button>
+									</div>
+									<button class="btn btn-info addfields display-inline ml"
+										ng-click="addNewOption()">
+										<span class="glyphicon glyphicon-plus icon-font"></span>
+									</button>
+								</div>
+							
+							<!-- </div>  -->
+						</div>
+						<!--Dropdown options div-->
+					</div>
+					<!--form-horizontal div-->
+				</div>
+			</div>
+		</div>
+		<!--Row div-->
+		<div class="mb">
+			<!--button div starts-->
+			<button type="button" class="btn btn-theme mL" ng-click="addNewQuestion()">
+				<span class="fa fa-pencil icon-font-big" aria-hidden="true" ></span>
+				Add Questions
+			</button>
+			<button type="button" class="btn btn-theme03 mL">
+				Finish Survey <span class="fa fa-flag-checkered icon-font-big"
+					aria-hidden="true"></span>
+			</button>
+		</div>
+	</section>
+</section>
