@@ -974,11 +974,12 @@ PANELS CONFIGURATIONS
 
 .grey-panel {
 	text-align: center;
-	background:#faf6bd;
+	background:#fcfbb7;
+	color:black;
 
 }
 .grey-panel .grey-header {
-	background: #ccd1d9;
+	background: #faf6bd;
 	padding: 3px;
 	margin-bottom: 15px;
 }

@@ -113,7 +113,7 @@
             <!-- <div ng-view>
 						</div> -->
             <!-- ngview -->
-            <!--Admin's Dashboard view-->
+<!--Admin's Dashboard view-->
 <section id="main-content">
  <section class="wrapper mt">
    <h3 class="mt mb">
@@ -180,13 +180,14 @@
 							<div class="pn grey-panel message-box ">
 								<div class="grey-header">
 									<h5>
-										<i class="fa fa-pencil-square-o" /></i> Design your Survey
+										<i class="fa fa-pencil-square-o" ></i> Design your Survey
 									</h5>
 								</div>
 								<div class="row">
-									<div class="col-sm-6 col-xs-6 goleft">
-										<p>
-											 70%
+									<div class="col-sm-12 col-xs-12 goleft">
+										<p class="text-font">
+										Design the page as per your need. Pick from our wide range of question types to get 
+										the best results .
 										</p>
 									</div>
 								</div>
@@ -197,13 +198,14 @@
 							<div class="pn grey-panel message-box ">
 								<div class="grey-header">
 									<h5>
-										<i class="fa fa-pencil-square-o" /></i> Design your Survey
+										<i class="fa fa-users" ></i> Pick your Audience
 									</h5>
 								</div>
 								<div class="row">
-									<div class="col-sm-6 col-xs-6 goleft">
-										<p class="label-font">
-											 70%
+									<div class="col-sm-12 col-xs-12 goleft">
+										<p class="text-font">
+										We help us you to reach your audiences and bring their valuable responses to enhance 
+										your output for your future growth.	
 										</p>
 									</div>
 								</div>
@@ -214,7 +216,7 @@
 							<div class=" pn grey-panel message-box ">
 								<div class="grey-header">
 									<h5>
-										<i class="fa fa-pencil-square-o" /></i>Analyze your Survey
+										<i class="fa fa-bar-chart" ></i> Analyze your Survey
 									</h5>
 								</div>
 								<div class="row">
@@ -226,19 +228,10 @@
 								</div>
 							</div>
 							<!--/grey-panel -->
-						</div>
-						
+						</div>	
 					</div>
-					
-					
 				</div>
-         
-       </div><!-- mb mt -->
-       
-       
-       
-       
-      
+       </div><!-- mb mt -->		
  </section>
 </section>
             

@@ -10,7 +10,7 @@ angular.module("myApp").config(function($routeProvider) {
        templateUrl : "assets/contentView/signup.htm",
        controller:"signupController.js"
    })
-
+   
    .otherwise({
       redirectTo: "assets/contentView/login.htm"
    });
