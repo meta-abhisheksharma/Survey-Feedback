@@ -23,7 +23,8 @@ $scope.submit = function() {
     	   $window.location.href = '/surveyfeedback/dashboard';
     	  }, function errorCallback(response) {
     	    
-    		  alert("djjshgjh");
+    		   var myEl = angular.element( document.querySelector( '#error' ) );
+			   myEl.css('display','inline');
     		  
     	  });
   

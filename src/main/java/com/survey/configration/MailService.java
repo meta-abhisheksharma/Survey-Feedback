@@ -1,10 +1,5 @@
 package com.survey.configration;
 
-/**
-* @author Rohit Singhavi Arpit Pittie
-* Class to send email notifications
-*/
-
 import java.util.Properties;
 
 import javax.mail.Message;

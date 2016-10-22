@@ -19,11 +19,11 @@ angular.module("myApp").controller("signUpController",['$scope','$http','$locati
     		console.log("success");
     		console.log(status);
 //    	   alert("message signUp");
-    	   debugger;
+    	  
     	  }, function errorCallback(status) {
     		  $location.path("dashboard");
     	    console.log(status);
-    	    debugger;
+  
 //    		  alert("error");
     	  });
    

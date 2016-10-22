@@ -31,6 +31,9 @@
 			<form class="form-login" ng-controller="loginController">
 				<h2 class="form-login-heading">sign in now</h2>
 				<div class="login-wrap">
+				<div class="row" style="color:maroon;display:none" id="error">
+				<h4>Please Fill Correct Detail</h4>
+				</div>
 					<input type="text" class="form-control" placeholder="User ID"
 						autofocus ng-model="email"> <br> <input
 						type="password" class="form-control" placeholder="Password"

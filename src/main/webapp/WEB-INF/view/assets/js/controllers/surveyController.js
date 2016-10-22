@@ -1,5 +1,5 @@
 
-angular.module("app").controller("surveyController",['$scope','$http',function($scope,$http){
+angular.module("app").controller("surveyController",['$scope','$http','$rootScope',function($scope,$http,$rootScope){
 $http({
 	method: 'GET',
 	  url: '/surveyfeedback/surveys/'
@@ -45,11 +45,11 @@ $scope.updateSurvey=function(id){
 			  alert("error");
 		  });
 
-	
-	
 }
 
-
+$scope.displaySurvey=function(id){
+	$rootScope.questions=$scope.surveys[id].questions;
+}
 
 }]);
 

@@ -1,4 +1,4 @@
-	angular.module("myApp").controller("userController",['$scope','$http',function($scope,$http){
+	angular.module("app").controller("userController",['$scope','$http',function($scope,$http){
 		
 	/*//Get all users  from the database 
 		$scope.getAllUser = function() {
