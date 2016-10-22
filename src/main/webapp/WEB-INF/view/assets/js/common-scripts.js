@@ -1,4 +1,8 @@
 /*---LEFT BAR ACCORDION----*/
+//$(document).ready(function(){
+//    $('[data-toggle="tooltip"]').tooltip(); 
+//});
+
 $(function() {
     $('#nav-accordion').dcAccordion({
         eventType: 'click',
@@ -12,6 +16,7 @@ $(function() {
         classExpand: 'dcjq-current-parent'
     });
 });
+
 
 var Script = function () {
 
