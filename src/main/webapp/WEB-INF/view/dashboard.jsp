@@ -7,7 +7,8 @@
         <!-- Bootstrap core CSS -->
         <link href="assets/css/bootstrap.css" rel="stylesheet">
         <!--external css-->
-        <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"/>
+        <!-- <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet"/> -->
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet"/>
 
         <!-- Custom styles for this template -->
         <link href="assets/css/style.css" rel="stylesheet"/>
@@ -112,80 +113,135 @@
             <!-- <div ng-view>
 						</div> -->
             <!-- ngview -->
-						<!--Admin's Dashboard view-->
-						<section id="main-content">
-						 <section class="wrapper">
-						   <!-- <div class="container "> -->
-						     <div class="row">
-						         <div class="col-lg-8 col-lg-offset-2">
-						             <div class="row mt ">
-						                 <div class="col-md-4 col-sm-4 mb mt">
-						                     <div class="white-panel pn">
-						                         <div class="white-header">
-						                             <h4>TOTAL SURVEYS</h5>
-						                         </div>
-						                         <div class="row">
-						                             <div class="col-sm-6 col-xs-6 goleft">
-						                                 <p>
-						                                     content
-						                                   </p>
-						                             </div>
-						                             <div class="col-sm-6 col-xs-6"></div>
-						                         </div>
-						                         <div class="centered">
-						                             <!-- <img src="assets/img/product.png" width="120"> -->
-						                         </div>
-						                     </div>
-						                 </div>
-						                 <!-- /col-md-4 -->
-
-						                 <div class="col-md-4 col-sm-4 mb mt">
-						                     <div class="white-panel pn ">
-						                         <div class="white-header">
-						                             <h4>TOTAL USERS</h5>
-						                         </div>
-						                         <div class="row">
-						                             <div class="col-sm-6 col-xs-6 goleft">
-						                                 <p>
-						                                     <i class="fa fa-heart"></i>
-						                                     122
-						                                   </p>
-						                             </div>
-						                             <div class="col-sm-6 col-xs-6"></div>
-						                         </div>
-						                         <div class="centered">
-						                             <!-- <img src="assets/img/product.png" width="120"> -->
-						                         </div>
-						                     </div>
-						                 </div>
-						                 <!-- /col-md-4 -->
-
-						                 <div class="col-md-4 col-sm-4 mb mt">
-						                     <div class="white-panel pn">
-						                         <div class="white-header">
-						                             <h4>TOTAL RESPONDERS</h4>
-						                         </div>
-						                         <div class="row">
-						                             <div class="col-sm-6 col-xs-6 goleft">
-						                                 <p>
-						                                     <i class="fa fa-heart"></i>
-						                                     122
-						                                   </p>
-						                             </div>
-						                             <div class="col-sm-6 col-xs-6"></div>
-						                         </div>
-						                         <div class="centered">
-						                             <!-- <img src="assets/img/product.png" width="120"> -->
-						                         </div>
-						                     </div>
-						                 </div>
-						                 <!-- /col-md-4 -->
-						             </div>
-						         </div>
-						     </div>
-						   <!-- </div> -->
-						 </section>
-						</section>
+            <!--Admin's Dashboard view-->
+<section id="main-content">
+ <section class="wrapper mt">
+   <h3 class="mt mb">
+       <i class="fa fa-angle-right"></i>
+      Dashboard
+     </h3>
+       <div class="mt mb">
+         <div class="row mt">
+           <a href="#">
+             <div class="col-lg-4">
+               <div id="totalSurveyPanel" class="panel panel-size">
+                 <div class="panel-heading">
+                   <div class="row">
+                     <div class="col-xs-3">
+                       <i class="fa fa-spinner fa-spin fa-5x fa-fw" aria-hidden="true"></i>
+                     </div>
+                     <div class="col-xs-9 text-right">
+                       <div class="huge">26</div>
+                       <div class="label-font">Total Surveys</div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </a>
+           <a href="#">
+             <div class="col-lg-4">
+               <div id="membersPanel" class="panel panel-size">
+                 <div class="panel-heading">
+                   <div class="row">
+                     <div class="col-xs-3">
+                       <i class="fa fa-users fa-flip-horizontal fa-5x" aria-hidden="true"></i>
+                     </div>
+                     <div class="col-xs-9 text-right">
+                       <div class="huge">27</div>
+                       <div class="label-font">Total Surveyor</div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </a>
+           <a href="#">
+             <div class="col-lg-4">
+               <div id="responderPanel" class="panel panel-size">
+                 <div class="panel-heading">
+                   <div class="row">
+                     <div class="col-xs-3">
+                       <i class="fa fa-user-plus fa-5x" aria-hidden="true"></i>
+                     </div>
+                     <div class="col-xs-9 text-right">
+                       <div class="huge">74</div>
+                       <div class="label-font">Total Responders</div>
+                     </div>
+                   </div>
+                 </div>
+               </div>
+             </div>
+           </a>
+         </div>
+         <!-- /.row -->
+					<div class="row mt">
+						<div class="col-lg-4 mb">
+							<div class="pn grey-panel message-box ">
+								<div class="grey-header">
+									<h5>
+										<i class="fa fa-pencil-square-o" /></i> Design your Survey
+									</h5>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-xs-6 goleft">
+										<p>
+											 70%
+										</p>
+									</div>
+								</div>
+							</div>
+							<!--/grey-panel -->
+						</div>
+						<div class="col-lg-4 mb">
+							<div class="pn grey-panel message-box ">
+								<div class="grey-header">
+									<h5>
+										<i class="fa fa-pencil-square-o" /></i> Design your Survey
+									</h5>
+								</div>
+								<div class="row">
+									<div class="col-sm-6 col-xs-6 goleft">
+										<p class="label-font">
+											 70%
+										</p>
+									</div>
+								</div>
+							</div>
+							<!--/grey-panel -->
+						</div>
+						<div class="col-lg-4 mb">
+							<div class=" pn grey-panel message-box ">
+								<div class="grey-header">
+									<h5>
+										<i class="fa fa-pencil-square-o" /></i>Analyze your Survey
+									</h5>
+								</div>
+								<div class="row">
+									<div class="col-sm-12 col-xs-12 goleft">
+										<p class="text-font">
+											We help to gather and analyze the crucial facts and figures with a precision that no other can provide  
+										</p>
+									</div>
+								</div>
+							</div>
+							<!--/grey-panel -->
+						</div>
+						
+					</div>
+					
+					
+				</div>
+         
+       </div><!-- mb mt -->
+       
+       
+       
+       
+      
+ </section>
+</section>
+            
 
 
 

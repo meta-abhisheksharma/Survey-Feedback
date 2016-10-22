@@ -210,6 +210,14 @@ hr {
   font-size: 15px;
 }
 
+.text-font{
+	font-size:22px;
+	
+}
+
+
+
+
 .site-margin-bottom {
 	margin-bottom: 100px;
 }
@@ -230,7 +238,7 @@ hr {
   margin-bottom: 10px;
 }
 
-/*User profile pic Coonfiguration*/
+/*User profile pic Configuration*/
 .userpic {
     /*border: 1px dashed #b8b8b8;*/
     width: 202px;
@@ -908,6 +916,38 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	color: #68dff0;
 }
 
+/*Dashboard Pannels*/
+.panel-size{
+  max-width: 360px;
+  max-height: 130px;
+}
+
+.message-panel{
+  max-width: 360px;
+  max-height: 250px;
+}
+
+.message-box{
+  max-width: 360px;
+  height: 250px;
+}
+
+.huge {
+  font-size: 60px;
+}
+#totalSurveyPanel{
+  color : white;
+  background-color: #37bc9b;
+}
+#membersPanel{
+  background-color:#5bc0de;
+  color : white;
+}
+#responderPanel{
+  background-color: rgba(211, 58, 0, 0.75);
+  color : white;
+}
+
 /* *************************************************************************************
 PANELS CONFIGURATIONS
 *************************************************************************************** */
@@ -924,35 +964,33 @@ PANELS CONFIGURATIONS
 
 }
 
-/*White Panel */
-.white-panel {
-	text-align: center;
-	background: #ffffff;
-	color: #ccd1d9;
+.panel-font{
+  font-size: 50px;
+  font-weight: bolder;
+  color:darkgrey;
 }
 
-.white-panel p {
-	margin-top: 5px;
-	font-weight: 700;
-	margin-left: 15px;
+/*Grey Panel*/
+
+.grey-panel {
+	text-align: center;
+	background:#faf6bd;
+
 }
-.white-panel .white-header {
-	background: #f4f4f4;
+.grey-panel .grey-header {
+	background: #ccd1d9;
 	padding: 3px;
 	margin-bottom: 15px;
-	color:grey;
 }
-.white-panel .small {
-	font-size: 10px;
-	color: #ccd1d9;
+.grey-panel h5 {
+	font-weight: bold;
+	margin-top: 10px;
+  font-size: 23px;
 }
-
-.white-panel i {
-	color: #68dff0;
-	padding-right: 4px;
-	font-size: 14px;
+.grey-panel p {
+	margin-left: 5px;
 }
-
+	
 /* FORMS CONFIGURATION */
 .form-panel {
 	background: #ffffff;
