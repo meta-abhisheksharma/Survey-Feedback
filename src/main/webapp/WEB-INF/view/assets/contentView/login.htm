@@ -1,98 +1,108 @@
-<!-- Side Bar Start -->
+<script src="https://apis.google.com/js/api:client.js"></script>
+
 <aside>
-          <div id="sidebar"  class="nav-collapse">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-                  <li class="mt">  <!-- MarginTop -->
-                      <a href="index.jsp">
-                          <i class="fa fa-home"></i>
-                          <span>Home</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="index.jsp">
-                          <i class="fa fa-user"></i>
-                          <span>About Us</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="index.jsp">
-                          <i class="fa fa-envelope"></i>
-                          <span>Contact Us</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="#/login">
-                          <i class="fa fa-sign-in"></i>
-                          <span>Login</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="#/signup">
-                          <i class="fa fa-users"></i>
-                          <span>Sign Up</span>
-                      </a>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
+	<div id="sidebar" class="nav-collapse">
+		<!-- sidebar menu start-->
+		<ul class="sidebar-menu" id="nav-accordion">
+			<li class="mt">
+				<!-- MarginTop --> <a href="index.jsp"> <i class="fa fa-home"></i>
+					<span>Home</span>
+			</a>
+			</li>
+			<li><a href="index.jsp"> <i class="fa fa-user"></i> <span>About
+						Us</span>
+			</a></li>
+			<li><a href="index.jsp"> <i class="fa fa-envelope"></i> <span>Contact
+						Us</span>
+			</a></li>
+			<li><a href="#/login"> <i class="fa fa-sign-in"></i> <span>Login</span>
+			</a></li>
+			<li><a href="#/signup"> <i class="fa fa-users"></i> <span>Sign
+						Up</span>
+			</a></li>
+		</ul>
+		<!-- sidebar menu end-->
+	</div>
+</aside>
+<!--sidebar end-->
 <div id="login-page" ng-app="myApp">
-<div class="container">
-  <div class="login-alignment">
-    <form class="form-login" ng-submit="submit()" ng-controller="loginController">
-    <h2 class="form-login-heading">sign in now</h2>
-    <div class="login-wrap">
-      <input type="text" class="form-control" placeholder="User ID" autofocus ng-model="email"> 
-      <br>
-      <input type="password" class="form-control" placeholder="Password" ng-model="password">
-      <label class="checkbox">
-        <span class="pull-right">
-          <a data-toggle="modal" href="index.jsp#myModal"> Forgot Password?</a>
+	<div class="container">
+		<div class="login-alignment">
+			<form class="form-login" ng-controller="loginController">
+				<h2 class="form-login-heading">sign in now</h2>
+				<div class="login-wrap">
+				<div class="row" style="color:maroon;display:none" id="error">
+				<h4>Please Fill Correct Detail</h4>
+				</div>
+					<input type="text" class="form-control" placeholder="User ID"
+						autofocus ng-model="email"> <br> <input
+						type="password" class="form-control" placeholder="Password"
+						ng-model="password"> <label class="checkbox"> <span
+						class="pull-right"> <a data-toggle="modal"
+							href="index.jsp#myModal"> Forgot Password?</a>
 
-        </span>
-      </label>
-      <button class="btn btn-theme btn-block" type="submit" ng-click="login()"><i class="fa fa-lock"></i> SIGN IN</button>
-      <hr>
+					</span>
+					</label>
+					<button class="btn btn-theme btn-block" ng-click="submit()">
+						<i class="fa fa-lock"></i> SIGN IN
+					</button>
+					<hr>
 
-      <div class="login-social-link centered">
-      <p>or you can sign in via your social network</p>
-        
-        <button class="btn btn-google" type="submit" id="signinButton"><i class="fa fa-google"></i> Google </button>
+					<div class="login-social-link centered">
+						<p>or you can sign in via your social network</p>
 
-      </div>
-      <div class="registration">
-        Don't have an account yet?<br/>
-        <a class="" href="#/signup">
-          Create an account
-        </a>
-      </div>
-    </div>
+						<!-- <div id="gSignInWrapper">
+							<span class="label">Sign in with:</span>
+							<div id="customBtn" class="customGPlusSignIn btn btn-google">
+								<span class="icon"></span> <span class="buttonText">Google</span>
+							</div>
+						</div> -->
 
-      <!-- Modal -->
-      <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4 class="modal-title">Forgot Password ?</h4>
-            </div>
-            <div class="modal-body">
-              <p>Enter your e-mail address below to reset your password.</p>
-              <input type="text" name="email" placeholder="Email" autocomplete="off" class="form-control placeholder-no-fix">
+						<a id="google-bt"
+							href="
+https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localhost:8080/surveyfeedback/google/authenticate&response_type=code&client_id=1009741184185-l3bbvlk84qcfjnf49j03mgi5tc3mq5gm.apps.googleusercontent.com&approval_prompt=force
+				"
+							class="btn btn-google" style="color: yellow;"> Login through
+							google account </a>
+						<div id="name"></div>
+						<script>
+							startApp();
+						</script>
 
-            </div>
-            <div class="modal-footer">
-              <button data-dismiss="modal" class="btn btn-default" type="button">Cancel</button>
-              <button class="btn btn-theme" type="button">Submit</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!-- modal -->
-    </form>
-  </div>
+					</div>
+					<div class="registration">
+						Don't have an account yet?<br /> <a class="" href="#/signup">
+							Create an account </a>
+					</div>
+				</div>
+
+
+				<!-- Modal -->
+				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
+					tabindex="-1" id="myModal" class="modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"
+									aria-hidden="true">&times;</button>
+								<h4 class="modal-title">Forgot Password ?</h4>
+							</div>
+							<div class="modal-body">
+								<p>Enter your e-mail address below to reset your password.</p>
+								<input type="text" name="email" placeholder="Email"
+									autocomplete="off" class="form-control placeholder-no-fix">
+
+							</div>
+							<div class="modal-footer">
+								<button data-dismiss="modal" class="btn btn-default"
+									type="button">Cancel</button>
+								<button class="btn btn-theme" type="button">Submit</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- modal -->
+			</form>
+		</div>
+	</div>
 </div>
-</div>
- 

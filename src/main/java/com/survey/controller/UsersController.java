@@ -37,12 +37,12 @@ public class UsersController {
 	//user verification logic
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ResponseEntity<UserDTO> authentication(@RequestBody User user , HttpServletRequest request) {
-		
+	
 		HttpSession session = request.getSession();
 		if (user != null) {
-			System.out.println("" + user.getEmail());
 			UserDTO userDTO = usersFacade.verifyUser(user);
 			if (userDTO != null) {
+				session.setAttribute("email", user.getEmail());
 				return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);
 			} else {
 				return new ResponseEntity<UserDTO>(HttpStatus.NOT_FOUND);
@@ -75,15 +75,13 @@ public class UsersController {
 	
 	//create user
 	@RequestMapping(method = RequestMethod.POST)
-	public ResponseEntity<String> create(@RequestBody User user) {
-		
+	public ResponseEntity<User> create(@RequestBody User user) {
 		if (user != null) {
 			usersFacade.create(user);
-			return new ResponseEntity<String>("create successfully",
-					HttpStatus.CREATED);
+			return new ResponseEntity<User>(user,HttpStatus.OK);
 
 		} else {
-			return new ResponseEntity<String>(HttpStatus.INTERNAL_SERVER_ERROR);
+			return new ResponseEntity<User>(HttpStatus.INTERNAL_SERVER_ERROR);
 
 		}
 
@@ -91,7 +89,7 @@ public class UsersController {
 
 	
 	//update user 
-	@RequestMapping(value ="/{id}", method = RequestMethod.PUT)
+	@RequestMapping(value ="{id}", method = RequestMethod.PUT)
 	public ResponseEntity<String> update(@PathVariable(value = "id") String id,@RequestBody User user) {
 		if (user != null) {
 			usersFacade.updateByID(id, user);
@@ -107,7 +105,7 @@ public class UsersController {
 
 
 	//delete user 
-	@RequestMapping(value = "/{id}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "{id}", method = RequestMethod.DELETE)
 	public ResponseEntity<String> delete(@PathVariable(value = "id") String id) {
 		if (id != null) {
 			usersFacade.delete(id);
@@ -134,5 +132,24 @@ public class UsersController {
 		}
 		
 	}
-
+	
+	//authenticate user by email
+	@RequestMapping(value = "/emailvarify", method = RequestMethod.POST)		
+ 	public UserDTO authenticationByEmail(@RequestBody User user) {		
+ 				
+ 				
+ 		if (user != null) {		
+ 					
+ 			UserDTO userDTO = usersFacade.getUserByEmail(user.getEmail());		
+ 			if (userDTO != null) {		
+ 				return userDTO;		
+ 			} else {		
+ 				return null ;		
+ 			}		
+ 		
+ 		} else {		
+ 			return null;		
+ 		
+ 		}		
+ 	}
 }

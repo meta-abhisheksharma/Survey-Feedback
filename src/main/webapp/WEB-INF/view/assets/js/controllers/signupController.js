@@ -1,30 +1,30 @@
-angular.module("myApp").controller("signUpController",['$scope','$http',function($scope,$http){
+angular.module("myApp").controller("signUpController",['$scope','$http','$location',function($scope,$http,$location){
 	
 
-	$scope.signUp = function(user) {
+	$scope.signUp = function($location) {
 		console.log("dsl");
 		$scope.user = {
 				name:$scope.name,
 				password:$scope.password,
-				email:$scope.email,
-				userRole:null,
-				blockUser:null,
-			//	createdTime=" ",
-			//	updatedTime=""
-		
+				email:$scope.email	
 		}
 	
 		console.log($scope.user)
 		// Send data to the server
     	$http({
     		method: 'POST',
-    		  url: '/signUp',
-    		  params:$scope.user
-    	}).then(function successCallback(response) {
-    	   alert("message");
-    	  }, function errorCallback(response) {
-    	    
-    		  alert("error");
+    		  url: '/surveyfeedback/users',
+    		  data:$scope.user
+    	}).then(function successCallback(status) {
+    		console.log("success");
+    		console.log(status);
+//    	   alert("message signUp");
+    	  
+    	  }, function errorCallback(status) {
+    		  $location.path("dashboard");
+    	    console.log(status);
+  
+//    		  alert("error");
     	  });
    
   };

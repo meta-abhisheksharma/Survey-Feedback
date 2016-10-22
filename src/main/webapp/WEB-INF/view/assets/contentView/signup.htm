@@ -42,21 +42,41 @@
 <div id="signup-page">
 	  	<div class="container" ng-controller="signUpController">
 			<div class="login-alignment"> <!-- Align the form div -->
-		      <form class="form-signup" action="#/signup">
-		        <h2 class="form-signup-heading">sign up now</h2>
-		        <div class="signup-wrap">
-		            <input type="text" class="form-control" placeholder="Name" autofocus ng-model="name">
+		      <form class="form-signup" action="#/signup" name="userForm" >
+		        <h2 class="form-signup-heading" >sign up now</h2>
+		        <div class="signup-wrap" >
+		        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
+		            <input type="text" class="form-control" placeholder="Name" autofocus ng-model="name" name="name" ng-minlength="3" ng-maxlength="8">
+		             <p ng-show="userForm.name.$error.minlength" class="help-block">Username is too short.</p>
+            <p ng-show="userForm.name.$error.maxlength" class="help-block">Username is too long.</p>
+		            
+		            </div>
+		            
 					<br>
-					<br>
-					<input type="email" class="form-control" placeholder="Email address" autofocus ng-model="email">
+				<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
+					<input type="email" class="form-control" placeholder="Email address" autofocus ng-model="email"  name="email" >
+					  <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
+      			  </div>
+      			  
 		            <br>
-		            <input type="password" class="form-control" placeholder="Password" nd-model="password">
+		            
+		            <div class="form-group" ng-class="{'has-error':userForm.password.$invalid && !userForm.password.$pristine}">
+		          
+		            <input type="password" class="form-control" placeholder="Password"  id="password" name="password" nd-model="password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/">
+					 <p ng-show="userForm.password.$error.required" class="help-block">*</p>
+        			<p ng-show="userForm.password.$error.minlength" class="help-block">
+          				Passwords must be between 8 and 20 characters.</p>
+        			<p ng-show="userForm.password.$error.pattern" class="help-block">
+          			Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</p>
+      				</div>
+					
+					
 					<br>
 					<input type="password" class="form-control" placeholder="Confirm Password" >
 					<br>
 					<div class="g-recaptcha" data-sitekey="your site key"></div>
 					<br>
-		            <button class="btn btn-theme btn-block" type="submit" ng-click="signUp()"><i class="fa fa-lock"></i> SIGN UP</button>
+		            <button class="btn btn-theme btn-block" type="submit" ng-click="signUp()" ng-disabled="userForm.$invalid"><i class="fa fa-lock"></i> SIGN UP</button>
 
 		            <hr>
 
