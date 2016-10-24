@@ -1,8 +1,8 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router','ui.bootstrap','ngTagsInput']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     
-    $urlRouterProvider.otherwise('/home');
+    $urlRouterProvider.otherwise('/dashboard');
     
     $stateProvider
         
@@ -43,7 +43,23 @@ app.config(function($stateProvider, $urlRouterProvider) {
 		}).state('questions', {
 			url: '/questions',
 			templateUrl: 'assets/contentView/questions.htm'
+		}).state('edituser', {
+			url: '/edit',
+			templateUrl: 'assets/contentView/addUser.htm'
+			
+		}).state('surveyorList', {
+			url: '/surveyorList',
+			templateUrl: 'assets/contentView/userList.htm'
+			
+		}).state('responderList', {
+			url: '/responderList',
+			templateUrl:'assets/contentView/userList.htm'
+			
+		}).state('editProfile', {
+			url: '/editProfile',
+			templateUrl:'assets/contentView/profile.htm'
+			
 		});
-    
+   
         
 });

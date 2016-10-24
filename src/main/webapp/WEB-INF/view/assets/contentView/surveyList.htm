@@ -1,29 +1,21 @@
 <section id="main-content" ng-controller="surveyController">
 	<section class="wrapper">
-	<br>
-	<div class="pull-right">
-					<form class="form-inline">
-						<div class="form-group">
-							<input type="text" name="keyword" class="form-control" id="name"
-								placeholder="Search.." value="" ng-model="search.name">
-						</div>
-						<button type="submit" class="btn btn-default">
-							<span class="glyphicon glyphicon-search" aria-hidden="true"></span>
-						</button>
-					</form>
+		<br>
+		<div class="pull-right">
+			<form class="form-inline">
+				<div class="form-group">
+					<input type="text" name="keyword" class="form-control" id="name"
+						placeholder="Search.." value="" ng-model="search.surveyName">
 				</div>
-	
-	
-	
+			</form>
+		</div>
 		<h3>
 			<i class="fa fa-angle-right"></i> Surveys
 		</h3>
 		<div class="row mt">
-		
-				<div class="form-panel">
-
-					<table ng-controller="surveyController"
-						class="table table-bordered table-responsive active">
+			<div class="form-panel" ng-controller="surveyController">
+				<div class="table-responsive">
+					<table class="table table-bordered table-condensed active">
 						<thead>
 							<td>ID</td>
 							<td>Name</td>
@@ -31,7 +23,8 @@
 							<td>Type</td>
 							<td>Actions</td>
 						</thead>
-						<tbody ng-repeat="survey in surveys| filter :search">
+						<tbody
+							ng-repeat="survey in surveys.slice(((currentPage-1)*itemsPerPage),((currentPage)*itemsPerPage))| filter :search">
 							<td>{{survey.surveyID}}</td>
 							<td><a ui-sref="questions" ng-click="displaySurvey($index)">{{survey.surveyName}}</a></td>
 							<td>{{survey.status}}</td>
@@ -39,15 +32,23 @@
 							<td><a href=""><i class="fa fa-trash-o"
 									aria-hidden="true" ng-click="deleteSurvey(survey.surveyID)"></a></i>
 
-								<a href=""><i class="fa fa-pencil-square-o"></i></a></td>
+								<a href=""><i class="fa fa-pencil-square-o"></i></a> <a
+								ui-sref="invitation({surveyID: {{survey.surveyID}} })"><i
+									class="fa fa-envelope" aria-hidden="true"></i></a></td>
 						</tbody>
 					</table>
-
+				</div>
+				<div>
+					<ul uib-pagination total-items="totalItems" ng-model="currentPage"
+						max-size="maxSize" class="pagination-sm" boundary-links="true"
+						num-pages="numPages" items-per-page="itemsPerPage"></ul>
 
 				</div>
+
 			</div>
 		</div>
-		
+		</div>
+
 	</section>
 </section>
 

@@ -49,6 +49,8 @@ public class UsersFacade {
 			userDTO.setEmail(userReturn.getEmail());
 			userDTO.setName(userDTO.getName());
 			userDTO.setUserRole(userDTO.getUserRole());
+			userDTO.setBlockUser(userDTO.getBlockUser());
+			System.out.println(userDTO.getBlockUser());
 			return userDTO;
 		} else {
 			return null;
@@ -61,8 +63,9 @@ public class UsersFacade {
 			UserDTO userDTO = new UserDTO();
 			userDTO.setId(userReturn.getId());
 			userDTO.setEmail(userReturn.getEmail());
-			userDTO.setName(userDTO.getName());
-			userDTO.setUserRole(userDTO.getUserRole());
+			userDTO.setName(userReturn.getName());
+			userDTO.setUserRole(userReturn.getUserRole());
+			userDTO.setPicture(userReturn.getPicture());
 			return userDTO;
 		} else {
 			return null;
@@ -103,4 +106,26 @@ public class UsersFacade {
 		userDAO.updateByID(id, oldUser);
 
 	}
+
+	@Transactional
+	public List<UserDTO> getUserByRole(String userRole) {
+		try{
+		List<User> listOfUserReturn = userDAO.getUserByRole(userRole);
+		if (listOfUserReturn != null) {
+			return DTOUtils.populateUserDTO(listOfUserReturn);
+		} else {
+			return null;
+		}
+		}catch(Exception e){
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
+	
+	@Transactional
+    public String getUserPassword(String email) {
+        User user = userDAO.getUserByEmail(email);
+        return user.getPassword();
+    }
 }

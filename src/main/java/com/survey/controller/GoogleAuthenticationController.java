@@ -121,7 +121,10 @@ public class GoogleAuthenticationController {
 			User user = new User();
 			user.setEmail(email);
 			user.setName(authenticationPojo.getName());
+			user.setBlockUser("unblock");
+			user.setPassword("12345678A");
 			user.setCreatedTime(new Date());
+			user.setPicture(authenticationPojo.getPicture());
 			httpSession.setAttribute("email", user.getEmail());
 
 			// saving to database
@@ -131,6 +134,7 @@ public class GoogleAuthenticationController {
 			 * AndFileFilter profile completion
 			 */
 			if (userController.authenticationByEmail(user) == null) {
+				System.out.println("google picture created");
 				userController.create(user);
 			}
 			response.sendRedirect("/surveyfeedback/dashboard");

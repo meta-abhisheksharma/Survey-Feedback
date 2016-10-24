@@ -4,6 +4,8 @@ import java.util.List;
 
 public class QuestionDTO {
 
+	
+
 	private String questionId;
 	private String questionType;
 	private String questionText;
@@ -39,6 +41,13 @@ public class QuestionDTO {
 
 	public void setOptions(List<OptionDTO> options) {
 		this.options = options;
+	}
+	
+	@Override
+	public String toString() {
+		return "QuestionDTO [questionId=" + questionId + ", questionType="
+				+ questionType + ", questionText=" + questionText
+				+ ", options=" + options + "]";
 	}
 
 }

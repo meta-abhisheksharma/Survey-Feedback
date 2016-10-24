@@ -9,10 +9,10 @@
 					<span>Home</span>
 			</a>
 			</li>
-			<li><a href="index.jsp"> <i class="fa fa-user"></i> <span>About
+			<li><a href="#/aboutUs"> <i class="fa fa-user"></i> <span>About
 						Us</span>
 			</a></li>
-			<li><a href="index.jsp"> <i class="fa fa-envelope"></i> <span>Contact
+			<li><a href="#/contactUs"> <i class="fa fa-envelope"></i> <span>Contact
 						Us</span>
 			</a></li>
 			<li><a href="#/login"> <i class="fa fa-sign-in"></i> <span>Login</span>
@@ -31,9 +31,9 @@
 			<form class="form-login" ng-controller="loginController">
 				<h2 class="form-login-heading">sign in now</h2>
 				<div class="login-wrap">
-				<div class="row" style="color:maroon;display:none" id="error">
-				<h4>Please Fill Correct Detail</h4>
-				</div>
+					<div class="row" style="color: maroon; display: none" id="error">
+						<h4>Please Fill Correct Detail</h4>
+					</div>
 					<input type="text" class="form-control" placeholder="User ID"
 						autofocus ng-model="email"> <br> <input
 						type="password" class="form-control" placeholder="Password"
@@ -79,7 +79,8 @@ https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localh
 
 				<!-- Modal -->
 				<div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog"
-					tabindex="-1" id="myModal" class="modal fade">
+					tabindex="-1" id="myModal" class="modal fade"
+					ng-controller="forgetPasswordController">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<div class="modal-header">
@@ -96,7 +97,8 @@ https://accounts.google.com/o/oauth2/auth?scope=email&redirect_uri=http://localh
 							<div class="modal-footer">
 								<button data-dismiss="modal" class="btn btn-default"
 									type="button">Cancel</button>
-								<button class="btn btn-theme" type="button">Submit</button>
+								<button class="btn btn-theme" type="button"
+									ng-click="getPassword()">Submit</button>
 							</div>
 						</div>
 					</div>

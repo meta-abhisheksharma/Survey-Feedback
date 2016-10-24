@@ -1,7 +1,14 @@
-angular.module("app").factory('SharedService',function(){
-	survey = {};
+angular.module("app").factory('SharedService',function($scope){
+	var survey = {}; 
+	survey.questions = [];
+	alert("hii");
 	return {
-		survey :survey
-	};
+	    setSurvey: function (surveyData) {
+	        survey = surveyData;
+	    },
+	    getSurvey: function () {
+	        return survey;
+	    }
+	}
 	
 });

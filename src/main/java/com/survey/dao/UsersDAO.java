@@ -19,4 +19,5 @@ public interface UsersDAO {
 	public User getUserById(String id);
 	public User getUserByEmail(String email);
 	public List<String> getUserRoleSet();
+	public List<User> getUserByRole(String userRole);
 }

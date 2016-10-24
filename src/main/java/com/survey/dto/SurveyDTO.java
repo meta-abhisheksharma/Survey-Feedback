@@ -4,12 +4,23 @@ import java.util.List;
 
 public class SurveyDTO {
 
+	
+
 	private List<QuestionDTO> questions;
 	private String surveyType;
 	private String surveyName;
 	private String status;
 	private String surveyID;
+	private String label;
 	
+	public String getLabel() {
+		return label;
+	}
+
+	public void setLabel(String label) {
+		this.label = label;
+	}
+
 	public String getSurveyType() {
 		return surveyType;
 	}
@@ -55,4 +66,11 @@ public class SurveyDTO {
 	public void setSurveyID(String surveyID) {
 		this.surveyID = surveyID;
 	}	
+	
+	@Override
+	public String toString() {
+		return "SurveyDTO [questions=" + questions + ", surveyType="
+				+ surveyType + ", surveyName=" + surveyName + ", status="
+				+ status + ", surveyID=" + surveyID + "]";
+	}
 }

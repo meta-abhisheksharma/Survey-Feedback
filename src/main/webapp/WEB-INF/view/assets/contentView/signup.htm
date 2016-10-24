@@ -1,93 +1,101 @@
 <!-- Side Bar Start -->
 <aside>
-          <div id="sidebar"  class="nav-collapse">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-                  <li class="mt">  <!-- MarginTop -->
-                      <a href="index.jsp">
-                          <i class="fa fa-home"></i>
-                          <span>Home</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="index.jsp">
-                          <i class="fa fa-user"></i>
-                          <span>About Us</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="index.jsp">
-                          <i class="fa fa-envelope"></i>
-                          <span>Contact Us</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="#/login">
-                          <i class="fa fa-sign-in"></i>
-                          <span>Login</span>
-                      </a>
-                  </li>
-				  <li>
-                      <a href="#/signup">
-                          <i class="fa fa-users"></i>
-                          <span>Sign Up</span>
-                      </a>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
+	<div id="sidebar" class="nav-collapse">
+		<!-- sidebar menu start-->
+		<ul class="sidebar-menu" id="nav-accordion">
+			<li class="mt">
+				<!-- MarginTop --> <a href="index.jsp"> <i class="fa fa-home"></i>
+					<span>Home</span>
+			</a>
+			</li>
+			<li><a href="#/aboutUs"> <i class="fa fa-user"></i> <span>About
+						Us</span>
+			</a></li>
+			<li><a href="#/contactUs"> <i class="fa fa-envelope"></i> <span>Contact
+						Us</span>
+			</a></li>
+			<li><a href="#/login"> <i class="fa fa-sign-in"></i> <span>Login</span>
+			</a></li>
+			<li><a href="#/signup"> <i class="fa fa-users"></i> <span>Sign
+						Up</span>
+			</a></li>
+		</ul>
+		<!-- sidebar menu end-->
+	</div>
+</aside>
+<!--sidebar end-->
 
 <div id="signup-page">
-	  	<div class="container" ng-controller="signUpController">
-			<div class="login-alignment"> <!-- Align the form div -->
-		      <form class="form-signup" action="#/signup" name="userForm" >
-		        <h2 class="form-signup-heading" >sign up now</h2>
-		        <div class="signup-wrap" >
-		        <div class="form-group" ng-class="{ 'has-error' : userForm.name.$invalid && !userForm.name.$pristine }">
-		            <input type="text" class="form-control" placeholder="Name" autofocus ng-model="name" name="name" ng-minlength="3" ng-maxlength="8">
-		             <p ng-show="userForm.name.$error.minlength" class="help-block">Username is too short.</p>
-            <p ng-show="userForm.name.$error.maxlength" class="help-block">Username is too long.</p>
-		            
-		            </div>
-		            
-					<br>
-				<div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-					<input type="email" class="form-control" placeholder="Email address" autofocus ng-model="email"  name="email" >
-					  <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
-      			  </div>
-      			  
-		            <br>
-		            
-		            <div class="form-group" ng-class="{'has-error':userForm.password.$invalid && !userForm.password.$pristine}">
-		          
-		            <input type="password" class="form-control" placeholder="Password"  id="password" name="password" nd-model="password" ng-minlength="8" ng-maxlength="20" ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/">
-					 <p ng-show="userForm.password.$error.required" class="help-block">*</p>
-        			<p ng-show="userForm.password.$error.minlength" class="help-block">
-          				Passwords must be between 8 and 20 characters.</p>
-        			<p ng-show="userForm.password.$error.pattern" class="help-block">
-          			Must contain one lower &amp; uppercase letter, and one non-alpha character (a number or a symbol.)</p>
-      				</div>
-					
-					
-					<br>
-					<input type="password" class="form-control" placeholder="Confirm Password" >
-					<br>
-					<div class="g-recaptcha" data-sitekey="your site key"></div>
-					<br>
-		            <button class="btn btn-theme btn-block" type="submit" ng-click="signUp()" ng-disabled="userForm.$invalid"><i class="fa fa-lock"></i> SIGN UP</button>
+	<div class="container" ng-controller="signUpController">
+		<div class="login-alignment">
+			<!-- Align the form div -->
+			<form class="form-signup" name="myForm">
+				<h2 class="form-signup-heading">sign up now</h2>
+				<div class="signup-wrap">
 
-		            <hr>
+					<div class="form-group">
+						<input type="text" id="name" name="name" ng-model="name"
+							class="form-control" placeholder="Enter Name" required /> <span
+							ng-show="myForm.name.$error.required && myForm.name.$dirty">required</span>
 
-		            <!-- <div class="login-social-link centered">
-		            <p>or you can sign up in via your social network</p>
-		               
-						<button class="btn btn-google" type="submit" ng-click="signUp()"><i class="fa fa-google-plus"></i> Google</button>
-		            </div> -->
-					<!-- <div class="g-recaptcha" data-sitekey="6LcX1v4SAAAAAOf5ffTwmpYwTx07N5Df5ztmSkde"></div> -->
-		        </div>
-		      </form>
-			</div>
-	  	</div>
-	  </div>
+					</div>
+
+
+					<br>
+					<div class="form-group">
+						<input type="email" id="email" name="email" ng-model="email"
+							required class="form-control" placeholder="Enter Email" /> <span
+							ng-show="myForm.email.$error.required && myForm.email.$dirty">required</span>
+						<span
+							ng-show="!myForm.email.$error.required && myForm.email.$error.email && myForm.email.$dirty">invalid
+							email</span>
+
+					</div>
+
+					<br>
+
+					<div class="form-group">
+
+
+						<input type="password" id="password" class="form-control"
+							name="password" placeholder="Password" ng-model="password"
+							ng-minlength="8" ng-maxlength="20"
+							ng-pattern="/(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z])/" required />
+						<span
+							ng-show="myForm.password.$error.required && myForm.password.$dirty">required</span>
+						<span
+							ng-show="!myForm.password.$error.required && (myForm.password.$error.minlength || myForm.password.$error.maxlength) && myForm.password.$dirty">Passwords
+							must be between 8 and 20 characters.</span> <span
+							ng-show="!myForm.password.$error.required && !myForm.password.$error.minlength && !myForm.password.$error.maxlength && myForm.password.$error.pattern && myForm.password.$dirty">Must
+							contain one lower &amp; uppercase letter, and one non-alpha
+							character (a number or a symbol.)</span>
+
+					</div>
+
+					<br>
+
+
+					<div class="form-group">
+						<input type="password" id="password_c" name="password_c"
+							ng-model="password_c" class="form-control"
+							placeholder="Confirm Password" valid-password-c required /> <span
+							ng-show="myForm.password_c.$error.required && myForm.password_c.$dirty">Please
+							confirm your password.</span> <span
+							ng-show="!myForm.password_c.$error.required && myForm.password_c.$error.noMatch && myForm.password.$dirty">Passwords
+							do not match.</span>
+					</div>
+				</div>
+				<br />
+
+
+				<button class="btn btn-theme btn-block" type="button"
+					ng-click="signUp()">
+					<i class="fa fa-lock"></i> SIGN UP
+				</button>
+				<hr>
+		
+		</form>
+	</div>
+</div>
+</div>
+

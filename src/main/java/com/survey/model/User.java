@@ -15,20 +15,37 @@ import javax.persistence.TemporalType;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import com.sun.istack.internal.NotNull;
+
 @Entity
 @Table(name="users")
 public class User {
 	
 	@Column(unique=true)
+	@NotNull
 	private String email;
 	private String password;
 	private String userRole;
-	private Boolean blockUser;
+	private String blockUser;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date createdTime;
 	@Temporal(TemporalType.TIMESTAMP)
 	private Date updatedTime;
 	
+	private String picture;
+	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public List<Survey> getSurvey() {
+		return survey;
+	}
+	public void setSurvey(List<Survey> survey) {
+		this.survey = survey;
+	}
 	@OneToMany(mappedBy="user",cascade=CascadeType.ALL)
 	private List<Survey> survey;
 	
@@ -71,10 +88,10 @@ public class User {
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
 	}
-	public Boolean getBlockUser() {
+	public String getBlockUser() {
 		return blockUser;
 	}
-	public void setBlockUser(Boolean blockUser) {
+	public void setBlockUser(String blockUser) {
 		this.blockUser = blockUser;
 	}
 	public Date getCreatedTime() {

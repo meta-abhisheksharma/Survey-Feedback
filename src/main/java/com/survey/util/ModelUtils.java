@@ -18,8 +18,11 @@ public class ModelUtils {
 		if(surveyDTO!=null){
 			survey = new Survey();
 			survey.setCreatedTime(new Date());
-			survey.setLabel("sad");
-			survey.setStatus("N");
+			survey.setLabel(surveyDTO.getLabel());
+			survey.setStatus(surveyDTO.getStatus());
+			survey.setSurveyId(surveyDTO.getSurveyID());
+			survey.setSurveyName(surveyDTO.getSurveyName());
+			survey.setSurveyType(surveyDTO.getSurveyType());
 			survey.setQuestionList(populateQuestion(surveyDTO.getQuestions()));
 		}
 		
@@ -53,7 +56,7 @@ public class ModelUtils {
 				option.setCreatedTime(new Date());
 				/*option.setLinkedQuestion(optionDTO.getLinkedQuestionId());*/
 				option.setOptionID(optionDTO.getOptionID());
-				option.setOptionText(option.getOptionText());
+				option.setOptionText(optionDTO.getOptionText());
 				options.add(option);
 			}
 		}

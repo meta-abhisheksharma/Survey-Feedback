@@ -48,12 +48,13 @@ javaMailProperties.setProperty("mail.smtp.starttls.enable", "true");
 mailSender.setJavaMailProperties(javaMailProperties);
 
 message.setFrom("rockavidude@gmail.com");
-for(int index=0 ; index<emailDetail.getTo().length;index++){
-message.setTo(emailDetail.getTo()[index]);
+for(int index=0 ; index<emailDetail.getTo().size();index++){
+	
 message.setSubject(emailDetail.getSubject());
+message.setTo(emailDetail.getTo().get(index).getText());
 //UserDTO userDTO = userFacade.getUserByEmail(emailDetail.getTo()[index]);
 // MESSAGE BODY
-message.setText(String.format("Dear " + emailDetail.getTo()[index] + ",\n\n"+emailDetail.getMessage()));
+message.setText(String.format("Dear " + emailDetail.getTo().get(index).getText() + ",\n\n"+emailDetail.getMessage()));
 
 mailSender.send(message);
 }
@@ -75,9 +76,9 @@ String fromUserEmailPassword = "nod@123456";
 Transport transport = mailSession.getTransport("smtp");
 
 transport.connect(emailHost, fromUser, fromUserEmailPassword);
-for(int index=0 ; index<emailDetail.getTo().length;index++){
-emailMessage.addRecipients(Message.RecipientType.TO,emailDetail.getTo()[index]);
-String mailMessage = mailMessage(emailDetail.getTo()[index]);
+for(int index=0 ; index<emailDetail.getTo().size();index++){
+emailMessage.addRecipients(Message.RecipientType.TO,(emailDetail.getTo().get(index).getText()));
+String mailMessage = mailMessage((emailDetail.getTo().get(index).getText()));
 emailMessage.setSubject(emailDetail.getSubject());
 emailMessage.setContent(mailMessage, "text/ html");
 transport.sendMessage(emailMessage, emailMessage.getAllRecipients());
@@ -102,6 +103,37 @@ private String mailMessage(String emailAddr){
 			+ "<a style='color: white; text-decoration: none;' href='http://localhost:8080/surveyfeedback/'>Accept</a>"
 			+ "</div>";
 	return mailMessage;
+}
+
+public void sendPasswordEmail(String email,String password){
+    setProperties();
+    JavaMailSenderImpl mailSender = new JavaMailSenderImpl();
+    SimpleMailMessage message = new SimpleMailMessage();
+
+    // FQDN of SMTP Service
+    mailSender.setHost("smtp.gmail.com");
+
+    // port to access gmail smtp
+    mailSender.setPort(587);
+
+    // authentication of gmail account
+    mailSender.setUsername("rockavidude@gmail.com");
+    mailSender.setPassword("nod@123456");
+
+    javaMailProperties.setProperty("mail.smtp.auth", "true");
+    javaMailProperties.setProperty("mail.smtp.starttls.enable", "true");
+
+    mailSender.setJavaMailProperties(javaMailProperties);
+
+    message.setFrom("rockavidude@gmail.com");
+    
+    message.setSubject("Password By surveyfeedback");
+    message.setTo(email);
+    
+    message.setText(String.format("Dear " + email + " ,\n\n your password is : "+password));
+
+    mailSender.send(message);
+    
 }
 
 }

@@ -77,6 +77,8 @@ public class DTOUtils {
 				userDTO.setName(user.getName());
 				userDTO.setEmail(user.getEmail());
 				userDTO.setUserRole(user.getUserRole());
+				userDTO.setBlockUser(user.getBlockUser());	
+				userDTO.setPicture(user.getPicture());
 				userDTOs.add(userDTO);
 			}
 		}

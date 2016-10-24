@@ -7,12 +7,13 @@
 <!-- Bootstrap core CSS -->
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 <!--external css-->
-<link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" />
 
 <!-- Custom styles for this template -->
 <link href="assets/css/style.css" rel="stylesheet" />
 <link href="assets/css/style-responsive.css" rel="stylesheet">
 <link href="assets/css/ng-tags-input.min.css" rel="stylesheet">
+
 </head>
 
 <body ng-app="app">
@@ -27,7 +28,7 @@
 					data-original-title="Toggle Navigation"></div>
 			</div>
 			<!--logo start-->
-			<a href="index.jsp" class="logo"><b>Survey Feeedback</b></a>
+			<a href="#/" class="logo"><b>Survey Feeedback</b></a>
 			<!--logo end-->
 			<!-- Logout Section start -->
 			<div class="top-menu">
@@ -45,15 +46,15 @@
     *********************************************************************************************************************************************************** -->
 		<!-- <div ng-include="'assets/contentView/dashboardView.htm'">
   </div> -->
-		<aside>
+		<aside ng-controller="sideBarController">
 			<div id="sidebar" class="nav-collapse ">
 				<!-- sidebar menu start-->
 				<ul class="sidebar-menu" id="nav-accordion">
 					<p class="centered">
-						<a href="dashboard.jsp"><img src="assets/img/ui-sam.jpg"
+						<a ui-sref="editProfile"><img src={{user.picture}}
 							class="img-circle" width="100" height="100"></a>
 					</p>
-					<h5 class="centered">Nikhil Srivastava</h5>
+					<h5 class="centered">{{user.name}}</h5>
 					<li class="mt"><a ui-sref="dashboard"> <i
 							class="fa fa-dashboard"></i> <span>Dashboard</span>
 					</a></li>
@@ -62,16 +63,15 @@
 					</a>
 						<ul class="sub">
 							<li><a ui-sref="addsurvey">Add Survey</a></li>
-							<li><a ui-sref="editsurvey">Edit Survey</a></li>
 							<li><a ui-sref="surveylist">Survey List</a></li>
 						</ul></li>
 
 					<li class="sub-menu"><a href="javascript:;"> <i
 							class="fa fa-user"></i> <span>Users</span>
 					</a>
-						<ul class="sub">
-							<li><a ui-sref="adduser">Add User</a></li>
-							<li><a ui-sref="userlist">User List</a></li>
+						<ul class="sub"  >
+							<li><a ui-sref="adduser" ng-click="setEmail()">Add User</a></li>
+							<li><a ui-sref="userlist" ng-click="setRole('getAll')" >User List</a></li>
 						</ul></li>
 					<li class="sub-menu"><a href="javascript:;"> <i
 							class="fa fa-bar-chart-o"></i> <span>View Report</span>
@@ -97,38 +97,31 @@
 		<div ng-include="'assets/contentView/footer.htm'"></div>
 
 	</section>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
-	<script type="text/javascript"
-		src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+	<!-- js placed at the end of the document so the pages load faster -->
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+	<script src="assets/js/jquery-1.8.3.min.js"></script>
+	<script src="assets/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.3.1/angular-ui-router.min.js"></script>
+		<!--common script for all pages-->
+	<script src="assets/js/common-scripts.js"></script>
 	<script type="text/javascript" src="assets/js/app2.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/sideBarController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/surveyController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/optionController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/questionController.js"></script>
-	<script type="text/javascript" src="assets/js/controllers/surveyController.js"></script>
 	<script type="text/javascript" src="assets/js/factory/surveyFactory.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/userListController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/userController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/questionListController.js"></script>
 	<script type="text/javascript" src="assets/js/controllers/emailController.js"></script>
 	<script type="text/javascript" src="assets/js/ng-tags-input.min.js"></script>
-	<!-- js placed at the end of the document so the pages load faster -->
-	<script src="assets/js/jquery-1.8.3.min.js"></script>
-	<script src="assets/js/bootstrap.min.js"></script>
-	<script class="include" type="text/javascript"
-		src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/addQuestionController.js"></script>
+	<script type="text/javascript" src="assets/js/controllers/addSurveyController.js"></script>
+	<script src="assets/js/ui-bootstrap-tpls-2.1.4.min.js" charset="utf-8"></script>
+	<script type="text/javascript" src="assets/js/controllers/responseController.js"></script>
+	<script class="include" type="text/javascript" src="assets/js/jquery.dcjqaccordion.2.7.js"></script>
 	<script src="assets/js/jquery.scrollTo.min.js"></script>
-	<!--common script for all pages-->
-	<script src="assets/js/common-scripts.js"></script>
-	<!-- <script>
-      //custom select box
-
-     $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script> -->
 
 
 </body>

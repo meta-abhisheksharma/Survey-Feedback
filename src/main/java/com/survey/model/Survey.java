@@ -14,6 +14,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 
 
@@ -23,7 +25,7 @@ public class Survey {
 
 	@Id
 	@Column(name="surveyID",nullable=false)
-	@GenericGenerator(name = "sequence_survey_id", strategy = "com.survey.service.ResponseIdGenerator")
+	@GenericGenerator(name = "sequence_survey_id", strategy = "com.survey.service.SurveyIdGenerator")
 	@GeneratedValue(generator = "sequence_survey_id")
 	private String surveyId;
 	
@@ -49,6 +51,7 @@ public class Survey {
 	private Date updatedTime;
 	
 	@OneToMany(mappedBy="survey")
+	 @Cascade({CascadeType.DELETE,CascadeType.SAVE_UPDATE})
 	private List<Question> questionList;
 	
 	@ManyToOne

@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.survey.dao.ResponsesDAO;
+import com.survey.dto.ResponseDTO;
+import com.survey.dto.SurveyDTO;
 import com.survey.model.Response;
 
 @Component
@@ -49,5 +51,18 @@ public class ResponsesFacade {
 			return false;
 		}
 	}
+	
+	public ResponseDTO getResposeDTO(SurveyDTO surveyDTO , String email) {
+		try{
+			ResponseDTO responseDTO = new ResponseDTO();
+			responseDTO.setSurveyDTO(surveyDTO);
+			responseDTO.setEmail(email);
+			return responseDTO;
+		}catch(Exception e){
+			return null;
+		}
+	}
+	
+	
 
 }

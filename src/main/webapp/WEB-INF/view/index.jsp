@@ -14,6 +14,7 @@
 <link href="assets/css/bootstrap.css" rel="stylesheet">
 <!--external css-->
 <link href="assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="assets/css/sweet-alert.css">
 
 <!-- Custom styles for this template -->
 <link href="assets/css/style.css" rel="stylesheet" />
@@ -34,7 +35,7 @@
 			<a href="index.jsp" class="logo"><b>Survey Feeedback</b></a>
 			<!--logo end-->
 		</header>
-		
+
 
 		<!--header end-->
 		<!-- **********************************************************************************************************************************************************
@@ -62,6 +63,12 @@
 		src="assets/js/controllers/loginController.js"></script>
 	<script type="text/javascript"
 		src="assets/js/controllers/signupController.js"></script>
+	
+	<script type="text/javascript" src="assets/js/controllers/forgetPasswordController.js"></script>
+	<script src="assets/js/SweetAlert.min.js"></script>
+	<script src="assets/js/sweet-alert.min.js"></script>
+		<script src="assets/js/angular-md5.js"></script>
+
 
 
 

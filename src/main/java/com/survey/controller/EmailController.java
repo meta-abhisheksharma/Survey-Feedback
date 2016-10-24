@@ -16,15 +16,16 @@ public class EmailController {
 
 	
     @RequestMapping(method = RequestMethod.POST)
-    public String doSendEmail(@RequestBody EmailPojo emailDetail) {
-    	MailService mailService = new MailService();
+    public String doSendEmail(@RequestBody EmailPojo emailDetail) throws MessagingException {System.out.println("email aa gya");
+    	 MailService mailService = new MailService();
     	mailService.sendMail(emailDetail);
+    	mailService.sendHTMLMail(emailDetail);
     	return "dashboard";
     	
     }
     
     @RequestMapping(value="/html",method = RequestMethod.POST)
-    public String doHtmlSendEmail(@RequestBody EmailPojo emailDetail) throws MessagingException {
+    public String doHtmlSendEmail(@RequestBody EmailPojo emailDetail) throws MessagingException {System.out.println("email aa gya button wala");
     	MailService mailService = new MailService();
     	mailService.sendHTMLMail(emailDetail);
     	return "dashboard";

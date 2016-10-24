@@ -100,4 +100,14 @@ public class UsersDAOImpl implements UsersDAO {
 		return userRoleList;
 	}
 
+	@Transactional
+	public List<User> getUserByRole(String userRole) {
+		
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from User where userRole = :userRole");
+		query.setParameter("userRole", userRole);
+
+		return query.list();
+	}
+
 }

@@ -15,6 +15,8 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.GenericGenerator;
 
 @Entity
@@ -43,12 +45,21 @@ public class Question {
 	private Date UpdatedTime;
 
 	@OneToMany(mappedBy="question")
+	@Cascade({CascadeType.DELETE,CascadeType.SAVE_UPDATE})
 	private List<Option> optionList=new ArrayList<Option>();
 
 	@ManyToOne
 	@JoinColumn(name="surveyID")
 	private Survey survey;
 
+
+	public Survey getSurvey() {
+		return survey;
+	}
+
+	public void setSurvey(Survey survey) {
+		this.survey = survey;
+	}
 
 	public List<Option> getOptionList() {
 		return optionList;

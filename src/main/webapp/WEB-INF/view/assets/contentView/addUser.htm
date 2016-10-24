@@ -1,46 +1,63 @@
-
 <section id="main-content" >
-    <section class="wrapper">
+    <section class="wrapper" ng-controller="userListController">
         <h3>
             <i class="fa fa-angle-right"></i>
-            Add User
+           <span ng-if="!user.email" >Add User</span>
+           <span ng-if="user.email"> Edit User</span>
           </h3>
         <div class="row mt">
             <div class="col-lg-11">
                 <div class="form-panel">
                     
-                    <div class="form-horizontal style-form">
+                    <div class="form-horizontal style-form" name="userForm">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Name</label>
-                            <div class="col-sm-10 col-lg-3 col-md-3">
-                                <input type="text" class="form-control" ng-model="name">
+                           
+                            <div class="col-sm-10 col-lg-3 col-md-3" >
+                                <input type="text" class="form-control" ng-model="name" ng-value="user.name" ng-minlength="2"
+									required placeholder="Name">
                             </div>
+			
+		
+							
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Role</label>
+
+						<div class="form-group">
+						<div class="col-lg-3 col-md-3 col-sm-10">
+						 <select class="form-control" ng-model="userRole" >
+						 		<option value="">Select</option>
+								<option value="admin">Admin</option>
+								<option value="surveyor">Surveyor</option>
+								<option value="responder">Responder</option>
+							
+							</select>
+							</div>
+						</div>
+
+
+						
+                        <div class="form-group" >
                             <div class="col-lg-3 col-md-3 col-sm-10 ">
-                                <input type="text" class="form-control" ng-model="userRole">
+                                <input type="email" class="form-control" name="email" placeholder="Email" ng-model="email" ng-value="user.email" ng-disabled="user.email" required>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Email</label>
-                           <div class="col-lg-3 col-md-3 col-sm-10 ">
-                                <input type="email" class="form-control" ng-model="email">
-                            </div>
+							
+							
                         </div>
                         
                         <div class="form-group">
-                             <label class="col-sm-2 control-label">Block User</label>
                             <div class="col-lg-3 col-md-3 col-sm-10 ">
-                                  <input type="text" class="form-control" ng-model="blockuser">
+                                  <input type="text" class="form-control" placeholder="Block User" ng-model="blockuser" ng-value="user.blockuser" required>
                             </div>
                         </div>
 						
-						<div class="form-group">
-							<label class="col-sm-2 control-label">Password</label>
-							 <div class="col-lg-3 col-md-3 col-sm-10 ">
-							  <input type="password" class="form-control" ng-model="password">
-							  </div>
+							<div class="form-group" ng-if="!user.email" >
+								<div class="col-lg-3 col-md-3 col-sm-10 ">
+							  <input type="password" class="form-control" placeholder="Password" name="password" ng-model="password" ng-value="user.password" required>
+							    </div>
+								
+							
+
+							  
+							  
 						</div> 
                         
                     </div>
@@ -48,7 +65,8 @@
             </div>
         </div>
         <div>
-              <button type="submit" class="btn btn-theme03 mL btn-font btn-padding" ng-click="createUser()">Add</button>
+              <button type="submit" ng-if="!user.email" value="save"  class="btn btn-theme03 mL btn-font btn-padding" ng-click="createUser()" >Add</button>
+              <button type="submit" ng-if="user.email" value="update" class="btn btn-theme03 mL btn-font btn-padding" ng-click="updateUser(user)" >Update</button>
         </div>
     </section>
 </section>

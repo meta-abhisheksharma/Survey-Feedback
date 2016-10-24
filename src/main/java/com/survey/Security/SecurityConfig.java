@@ -1,4 +1,4 @@
-package com.survey.Security;
+/*package com.survey.Security;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,3 +46,4 @@ System.out.println("hii welcome to spring security");
 	}
 
 }
+*/

@@ -161,6 +161,9 @@ hr {
 
 /*Helpers*/
 
+.put-margin{
+  margin:5px;
+}
 .centered {
 	text-align: center;
 }
@@ -199,11 +202,36 @@ hr {
 .icon-font{
   font-size: 14px;
 }
+.icon-font-big{
+  font-size: 20px;
+}
+
+.label-font{
+  font-size: 15px;
+}
+
+.text-font{
+	font-size:22px;
+	
+}
+.responsive-fonts{
+	font-size:1.5vw;
+	font-size:1.8vmin;
+	font-size:1.5vmax;
+}
+
+.underline{
+	border-bottom :1px solid grey;
+	 margin:10px; 
+	 margin-top:5px;
+	 margin-bottom:15px;
+}
+
+
 
 .site-margin-bottom {
 	margin-bottom: 100px;
 }
-
 
 .no-padding {
 	padding: 0 !important;
@@ -213,6 +241,70 @@ hr {
 	margin: 0 !important;
 }
 
+.display-inline{
+  display: inline;
+  float: left;
+}
+.bottom-margin{
+  margin-bottom: 10px;
+}
+
+/*User profile pic Configuration*/
+.userpic {
+    /*border: 1px dashed #b8b8b8;*/
+    width: 202px;
+    height: 202px;
+    position: relative;
+    cursor: pointer;
+	}
+  .userpic img {
+      max-width: 100%;
+      max-height: 100%;
+  }
+  .userpic .userpic-wrapper {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+.streched{
+  width:100%;
+
+}
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width: 100%;
+  height: 350px;
+}
+
+img-crop {
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: relative;
+    overflow: hidden;
+}
+
+img-crop canvas {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+}
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
@@ -223,9 +315,11 @@ hr {
 	background-color: #68dff0;
 }
 
+@media(min-width:760px){
+	
 ul.top-menu > li > .logout {
 	color: #f2f2f2;
-	font-size: 12px;
+	font-size: 14px;
 	border-radius: 4px;
 	-webkit-border-radius: 4px;
 	border: 1px solid #64c3c2 !important;
@@ -233,6 +327,24 @@ ul.top-menu > li > .logout {
 	margin-right: 15px;
 	background: #68dff0;
 	margin-top: 15px;
+}
+	
+}
+
+@media(max-width:760px){
+	
+ul.top-menu > li > .logout {
+	color: #f2f2f2;
+	font-size: 10px;
+	border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 1px solid #64c3c2 !important;
+	padding: 5px 15px;
+	margin-right: 15px;
+	background: #68dff0;
+	margin-top: 15px;
+}
+	
 }
 
 /*sidebar navigation*/
@@ -835,6 +947,82 @@ ul.top-menu > li > a:hover, ul.top-menu > li > a:focus {
 	color: #68dff0;
 }
 
+/*Dashboard Pannels*/
+.panel-size{
+  max-width: 360px;
+  max-height: 130px;
+}
+
+.message-panel{
+  max-width: 360px;
+  max-height: 250px;
+}
+
+.message-box{
+  max-width: 360px;
+  height: 250px;
+}
+
+.huge {
+  font-size: 60px;
+}
+#totalSurveyPanel{
+  color : white;
+  background-color: #37bc9b;
+}
+#membersPanel{
+  background-color:#5bc0de;
+  color : white;
+}
+#responderPanel{
+  background-color: rgba(211, 58, 0, 0.75);
+  color : white;
+}
+
+/* *************************************************************************************
+PANELS CONFIGURATIONS
+*************************************************************************************** */
+
+/*Panel Size*/
+
+.pn {
+	height: 250px;
+	box-shadow: 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+.pn:hover {
+	box-shadow: 2px 3px 2px rgba(0, 0, 0, 0.3);
+
+}
+
+.panel-font{
+  font-size: 50px;
+  font-weight: bolder;
+  color:darkgrey;
+}
+
+/*Grey Panel*/
+
+.grey-panel {
+	text-align: center;
+	background:#fcfbb7;
+	color:black;
+
+}
+.grey-panel .grey-header {
+	background: #faf6bd;
+	padding: 3px;
+	margin-bottom: 15px;
+}
+.grey-panel h5 {
+	font-weight: bold;
+	margin-top: 10px;
+  font-size: 23px;
+}
+.grey-panel p {
+	margin-left: 5px;
+}
+	
 /* FORMS CONFIGURATION */
 .form-panel {
 	background: #ffffff;
@@ -1088,6 +1276,28 @@ label {
 	text-align: center;
 }
 
+/*About Us CONFIGURATION PAGE*/
+.custom-font{
+	font-size:45px;
+}
+.custom-font-2{
+	font-size:35px;
+}
+.theme-color{
+	color:#68dff0;
+}
+.page-bg{
+	background-color:#fcfaea;
+}
+.img-border{
+	border:5px groove;
+	padding:6px;
+}
+
+.thankyou-bg{
+background-color:#e6f5fa;
+}
+
 .btn-facebook {
   color: #fff;
   background-color: #5193ea;
@@ -1160,12 +1370,6 @@ label {
 }
 
 
-
-
-
-
-
-
 /*footer*/
 .site-footer {
     background: #ffd777;
@@ -1197,3 +1401,9 @@ label {
 .site-min-height {
     min-height: 900px;
 }
+.put-center{
+	display: table;
+  margin-right: auto;
+  margin-left: auto;
+}
+

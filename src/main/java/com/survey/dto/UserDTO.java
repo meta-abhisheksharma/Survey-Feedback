@@ -6,15 +6,12 @@ import com.survey.model.Survey;
 
 public class UserDTO {
 	private String id;
-	public String getId() {
-		return id;
-	}
-	public void setId(String i) {
-		this.id = i;
-	}
 	private String email;
 	private String userRole;
 	private String name;
+	private String blockUser;
+	private String picture;
+	
 	//private List<Surveys> surveys;
 	
 	/*public List<Surveys> getSurveys() {
@@ -23,6 +20,20 @@ public class UserDTO {
 	public void setSurveys(List<Surveys> surveys) {
 		this.surveys = surveys;
 	}*/
+	
+	public String getPicture() {
+		return picture;
+	}
+	public void setPicture(String picture) {
+		this.picture = picture;
+	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String i) {
+		this.id = i;
+	}
+	
 	public String getName() {
 		return name;
 	}
@@ -41,6 +52,12 @@ public class UserDTO {
 	}
 	public void setUserRole(String userRole) {
 		this.userRole = userRole;
+	}
+	public String getBlockUser() {
+		return blockUser;
+	}
+	public void setBlockUser(String blockUser) {
+		this.blockUser = blockUser;
 	}
 	
 	

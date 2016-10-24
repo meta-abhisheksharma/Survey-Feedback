@@ -1,7 +1,6 @@
 angular.module("app").controller("questionController",
 		[ '$scope', '$rootScope', function($scope, $rootScope) {
 
-			console.log("In  create question");
 			$scope.question = {};
 			$scope.question.options = [];
 			$scope.options = [ {
@@ -23,19 +22,11 @@ angular.module("app").controller("questionController",
 			};
 
 			$scope.addNewQuestion = function() {
-				alert("hii");
 
 				$scope.question.options.push($scope.options);
-				console.log($rootScope.survey.question.length);
 				$rootScope.survey.question.push($scope.question);
 
-				console.log($rootScope.survey);
-			};
-			console.log($rootScope.survey);
-			/*
-			 * $scope.removeQuestion = function() { var lastQuestion =
-			 * $scope.survey.question.length-1;
-			 * $scope.survey.question.splice(lastItem); };
-			 */
 
+			};
+		
 		} ])
